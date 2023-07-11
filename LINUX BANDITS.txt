@@ -1,0 +1,1847 @@
+SOLUTION - Niveau 0
+
+Solution Niveau 0
+SSH, également connu sous le nom de Secure Shell ou Secure Socket Shell, est un protocole réseau qui offre aux utilisateurs, notamment aux administrateurs système, un moyen sécurisé d'accéder à un ordinateur via un réseau non sécurisé.
+
+Secure Shell fournit une authentification forte par mot de passe et par clé publique, ainsi que des communications de données cryptées entre deux ordinateurs connectés sur un réseau ouvert, tel qu'Internet.
+
+L'utilisation la plus élémentaire de SSH consiste à se connecter à un hôte distant pour une session de terminal. La syntaxe de cette commande est la suivante :
+
+ssh UserName@SSHserver.example.com
+Cette commande fera en sorte que le client tente de se connecter au serveur nommé server.example.com, en utilisant l'ID utilisateur UserName. 
+
+
+
+Solution 
+Dans notre cas, l'identifiant de l'utilisateur est bandit0 et le nom du serveur est bandit.labs.overthewire.org. Nous devons aussi spécifier le port 2220 en utilisant l'option "-p".
+
+Ainsi, la commande pour passer au niveau suivant est la suivante :
+ssh bandit0@bandit.labs.overthewire.org -p 2220
+Tapez le mot de passe "bandit0",
+
+
+
+Et voilà, vous vous êtes connectés.
+
+
+
+
+Continuer
+
+SOLUTION - Niveau 0 > 1
+
+Solution Niveau 0 à Niveau 1
+Informations
+Nom d'hôte : bandit.labs.overthewire.org
+Nom d'utilisateur : bandit0
+Mot de passe : bandit0
+Numéro de port : 2220
+
+Commandes possibles pour résoudre ce niveau
+Les commandes proposées :
+
+Commande	Explication
+ls	lister le contenu d'un répertoire
+cd	changer le répertoire de travail 
+cat	concaténer des fichiers et les imprimer sur la sortie standard
+file	déterminer le type de fichier 
+du	estimer l'utilisation de l'espace des fichiers
+find	rechercher de fichiers dans une hiérarchie de répertoires
+Note : Les commandes listées ci-dessus ne sont pas toutes utiles.
+
+
+Pour trouver le mot de passe du niveau 1
+[Étape 1] : Connectez-vous au compte avec le nom d'utilisateur et le mot de passe indiqués ci-dessus.
+
+[Étape 2] : Après s'être connecté, vous serez dans le répertoire personnel. En exécutant ls, vous verrez que le fichier readme se trouve dans le répertoire personnel. Donc, nous n'avons pas besoin d'exécuter cd.
+
+Note : Lorsque vous vous connectez pour la première fois, votre répertoire de travail actuel est votre répertoire personnel. Votre répertoire personnel porte le même nom que votre nom d'utilisateur.
+[Étape 3] : Pour afficher le contenu de readme et obtenir le mot de passe, exécutez cat readme.
+
+[Étape 4] : Pour vous déconnecter, exécutez exit.
+
+
+
+Solution 
+[Étape 1]
+> ssh bandit0@bandit.labs.overthewire.org -p 2220
+This is a OverTheWire game server. More information on http://www.overthewire.org/wargames
+bandit0@bandit.labs.overthewire.org's password: bandit0
+
+[Étape 2]
+> bandit0@bandit:~$ ls
+readme
+
+[Étape 3]
+> bandit0@bandit:~$ cat readme
+NH2SXQwcBdpmTEzi3bvBHMM9H66vVXjL
+
+[Étape 4]
+> bandit0@bandit:~$ exit
+logout
+Connection to bandit.labs.overthewire.org closed.
+
+Nom d'utilisateur et mot de passe du niveau 1 
+Nom d'utilisateur : bandit1
+Mot de passe : NH2SXQwcBdpmTEzi3bvBHMM9H66vVXjL
+
+Continuer
+
+Solution Niveau 1 à Niveau 2
+Informations
+Nom d'hôte : bandit.labs.overthewire.org
+Nom d'utilisateur : bandit1
+Mot de passe : NH2SXQwcBdpmTEzi3bvBHMM9H66vVXjL
+Numéro de port : 2220
+
+Commandes possibles pour résoudre ce niveau
+Les commandes proposées :
+
+Commande	Explication
+ls	lister le contenu d'un répertoire
+cd	changer le répertoire de travail 
+cat	concaténer des fichiers et les imprimer sur la sortie standard
+file	déterminer le type de fichier 
+du	estimer l'utilisation de l'espace des fichiers
+find	rechercher de fichiers dans une hiérarchie de répertoires
+Note : Les commandes listées ci-dessus ne sont pas toutes utiles.
+
+
+Pour trouver le mot de passe du niveau 2
+[Étape 1] : Connectez-vous au compte avec le nom d'utilisateur et le mot de passe indiqués ci-dessus.
+
+[Étape 2] : Après s'être connecté, vous serez dans le répertoire personnel. En exécutant ls, vous verrez que le fichier - se trouve dans le répertoire personnel. Donc, vous n'avez pas besoin de faire cd.
+
+[Étape 3] : Pour afficher le contenu de - et obtenir le mot de passe, exécutez soit cat ./- soit cat ./"-".
+
+Note : Erreur commise
+
+Exécuter cat - pour afficher le contenu du fichier - . Cela ne fonctionne pas.
+
+Selon le Guide avancé des scripts Bash, cat interprète - comme une redirection de/vers l'entrée standard ou la sortie standard. En d'autres termes, cat - fait un écho à l'entrée standard (dans ce cas, l'entrée de l'utilisateur du clavier) vers la sortie standard.
+
+
+[Étape 4] : Pour vous déconnecter, exécutez exit.
+
+
+
+Solution 
+[Étape 1]
+> ssh bandit1@bandit.labs.overthewire.org -p 2220
+This is a OverTheWire game server. More information on http://www.overthewire.org/wargames
+bandit1@bandit.labs.overthewire.org's password: NH2SXQwcBdpmTEzi3bvBHMM9H66vVXjL
+
+[Étape 2]
+> bandit1@bandit:~$ ls
+-
+
+[Étape 3]
+> bandit1@bandit:~$ cat ./-
+rRGizSaX8Mk1RTb1CNQoXTcYZWU6lgzi
+
+[Étape 5]
+> bandit1@bandit:~$ exit
+logout
+Connection to bandit.labs.overthewire.org closed.
+
+Nom d'utilisateur et mot de passe du niveau 2 
+Nom d'utilisateur : bandit2
+Mot de passe : rRGizSaX8Mk1RTb1CNQoXTcYZWU6lgzi
+
+Solution Niveau 2 à Niveau 3
+Informations
+Nom d'hôte : bandit.labs.overthewire.org
+Nom d'utilisateur : bandit2
+Mot de passe : rRGizSaX8Mk1RTb1CNQoXTcYZWU6lgzi
+Numéro de port : 2220
+
+Commandes possibles pour résoudre ce niveau
+Les commandes proposées :
+
+Commande	Explication
+ls	lister le contenu d'un répertoire 
+cd	changer le répertoire de travail 
+cat	concaténer des fichiers et les imprimer sur la sortie standard
+file	déterminer le type de fichier 
+du	estimer l'utilisation de l'espace des fichiers
+find	rechercher de fichiers dans une hiérarchie de répertoires
+Note : Les commandes listées ci-dessus ne sont pas toutes utiles.
+
+
+Pour trouver le mot de passe du niveau 3
+[Étape 1] : Connectez-vous au compte avec le nom d'utilisateur et le mot de passe indiqués ci-dessus.
+
+[Étape 2] : Après s'être connecté, vous serez dans votre répertoire personnel. En exécutant ls, vous verrez que l'espace du fichier dans ce nom de fichier est juste dans le répertoire personnel. Donc, nous n'avons pas besoin d'exécuter cd.
+
+[Étape 3] : Pour afficher le contenu de spaces in this filename et obtenir le mot de passe, exécutez soit cat spaces\ in\ this\ filename, soit cat 'spaces in this filename', soit cat "spaces in this filename".
+
+Note : Erreur commise
+
+Si vous exécutez cat spaces in this filename, vous obtenez l'erreur suivante :
+
+
+La commande cat interprète spaces in this filename comme 4 fichiers appelés spaces, in, this et filename.
+Sous Linux, il existe deux approches pour accéder à un fichier (de même à un répertoire) contenant des espaces dans son nom :
+
+Utiliser le caractère d'échappement, c'est-à-dire une barre oblique inverse (\)
+Utiliser des apostrophes (') ou des guillemets (")
+[Étape 4] : Pour vous déconnecter, exécutez exit.
+
+SOLUTION - Niveau 2 > 3
+
+Solution 
+[Étape 1]
+> ssh bandit2@bandit.labs.overthewire.org -p 2220
+This is a OverTheWire game server. More information on http://www.overthewire.org/wargames
+bandit1@bandit.labs.overthewire.org's password: rRGizSaX8Mk1RTb1CNQoXTcYZWU6lgzi
+
+[Étape 2]
+> bandit1@bandit:~$ ls
+spaces in this filename
+
+[Étape 3]
+> bandit2@bandit:~$ cat spaces\ in\ this\ filename
+aBZ0W5EmUfAf7kHTQeOwd8bauFJ2lAiG
+
+[Étape 5]
+> bandit2@bandit:~$ exit
+logout
+Connection to bandit.labs.overthewire.org closed.
+
+Nom d'utilisateur et mot de passe du niveau 3 
+Nom d'utilisateur : bandit3
+Mot de passe : aBZ0W5EmUfAf7kHTQeOwd8bauFJ2lAiG
+
+Continuer
+
+SOLUTION - Niveau 3 > 4
+
+Solution Niveau 3 à Niveau 4
+Informations
+Nom d'hôte : bandit.labs.overthewire.org
+Nom d'utilisateur : bandit3
+Mot de passe : aBZ0W5EmUfAf7kHTQeOwd8bauFJ2lAiG
+Numéro de port : 2220
+
+Commandes possibles pour résoudre ce niveau
+Les commandes proposées :
+
+Commande	Explication
+ls	lister le contenu d'un répertoire
+cd	changer le répertoire de travail 
+cat	concaténer des fichiers et les imprimer sur la sortie standard
+file	déterminer le type de fichier 
+du	estimer l'utilisation de l'espace des fichiers
+find	rechercher de fichiers dans une hiérarchie de répertoires
+Note : Les commandes listées ci-dessus ne sont pas toutes utiles.
+
+
+Informations complémentaires
+Note importante
+Les fichiers cachés sont des noms de fichiers qui commencent par un point (.).
+L'exécution de la commande ls n'affiche pas les fichiers cachés.
+Pour afficher les fichiers cachés, exécutez la commande ls -a pour afficher TOUS LES FICHIERS ou ls -al pour une liste plus longue.
+Commande	Explication
+ls -a	Lister tous les fichiers y compris les fichiers cachés
+ls -l	Lister les détails des fichiers
+Comment cacher les fichiers et les répertoires dans Linux / Bash ?
+Pour masquer un fichier ou un répertoire, il suffit d'ajouter un . au début du nom du fichier, comme suit :
+
+Pour créer un fichier caché, exécutez touch .<insérer le nom du fichier>
+Pour créer un répertoire caché, exécutez mkdir .<insérer le nom du répertoire>
+La commande grep vs find
+grep recherche une chaîne de caractères dans un fichier spécifié. Lorsqu'il trouve une correspondance, il imprime la ligne contenant le résultat.
+find recherche des fichiers et des répertoires dans une hiérarchie de répertoires.
+
+Pour trouver le mot de passe du niveau 4
+[Étape 1] : Connectez-vous au compte avec le nom d'utilisateur et le mot de passe indiqués ci-dessus.
+
+[Étape 1]
+> ssh bandit3@bandit.labs.overthewire.org -p 2220
+This is a OverTheWire game server. More information on http://www.overthewire.org/wargames
+bandit1@bandit.labs.overthewire.org's password: aBZ0W5EmUfAf7kHTQeOwd8bauFJ2lAiG
+[Méthode 1]
+
+[Étape 2] : Après s'être connecté, vous serez dans votre répertoire personnel. Vu que le fichier caché est situé dans le répertoire inhere, nous devons effectuer cd inhere.
+
+[Étape 3] (Facultatif) : Pour vérifier si le fichier caché est situé dans le répertoire inhere, exécutez ls -a ou ls -al.
+
+Note : Erreur commise
+
+Si vous exécutez ls, les fichiers cachés ne s'afficheront pas.
+
+
+[Étape 4] : Pour afficher le contenu du fichier caché et obtenir le mot de passe, exécutez cat .hidden.
+
+[Étape 5] : Pour vous déconnecter, exécutez exit.
+
+Solution 1
+[Étape 2]
+> bandit3@bandit:~$ cd inhere/
+
+[Étape 3] (Facultatif)
+> bandit3@bandit:~/inhere$ ls -al
+total 12
+drwxr-xr-x 2    root       root      4096    Jan 11    19:19     .
+drwxr-xr-x 3    root       root      4096    Jan 11    19:19     ..
+-rw-r----- 1     bandit4    bandit3    33      Jan 11    19:19    .hidden
+
+[Étape 4]
+> bandit3@bandit:~/inhere$ cat .hidden
+2EW7BBsr6aMMoJ2HjW067dm8EgX26xNe
+
+[Étape 5]
+> bandit3@bandit:~/inhere$ exit
+logout
+Connection to bandit.labs.overthewire.org closed.
+[Méthode 2]
+[Étape 2] : Exécutez find ou find . ( . signifie ici répertoire actuel). Dans la sortie, il y aura un fichier caché appelé .hidden situé dans le répertoire inhere. Il s'agit donc très probablement du fichier recherché.
+
+[Étape 3] : Pour afficher le contenu du fichier caché et obtenir le mot de passe, exécutez cat ./inhere/.hidden.
+
+[Étape 4] : Pour vous déconnecter, exécutez exit.
+
+Solution 2
+[Étape 2]
+> bandit3@bandit:~$ find .
+.
+./inhere
+./inhere/.hidden
+./.bash_logout
+./.profile
+./.bashrc
+
+[Étape 3] 
+> bandit3@bandit:~$ cat ./inhere/.hidden
+2EW7BBsr6aMMoJ2HjW067dm8EgX26xNe
+
+[Étape 4]
+> bandit3@bandit:~$ exit
+logout
+Connection to bandit.labs.overthewire.org closed.
+
+Nom d'utilisateur et mot de passe du niveau 4 
+Nom d'utilisateur : bandit4
+Mot de passe : 2EW7BBsr6aMMoJ2HjW067dm8EgX26xNe
+
+Continuer
+
+SOLUTION - Niveau 4 > 5
+
+Solution Niveau 4 à Niveau 5
+Informations
+Nom d'hôte : bandit.labs.overthewire.org
+Nom d'utilisateur : bandit4
+Mot de passe : 2EW7BBsr6aMMoJ2HjW067dm8EgX26xNe
+Numéro de port : 2220
+
+Commandes possibles pour résoudre ce niveau
+Les commandes proposées :
+
+Commande	Explication
+ls	lister le contenu d'un répertoire
+cd	changer le répertoire de travail 
+cat	concaténer des fichiers et les imprimer sur la sortie standard
+file	déterminer le type de fichier 
+du	estimer l'utilisation de l'espace des fichiers
+find	rechercher de fichiers dans une hiérarchie de répertoires
+Note : Les commandes listées ci-dessus ne sont pas toutes utiles.
+
+
+Pour trouver le mot de passe du niveau 5
+[Étape 1] : Connectez-vous au compte avec le nom d'utilisateur et le mot de passe indiqués ci-dessus.
+
+[Étape 2] : Exécutez file ./inhere/* pour déterminer le type de fichier pour tous les fichiers qui sont situés dans le répertoire inhere. ( ./inhere parce qu'après s'être connecté, nous serons dans le répertoire personnel et le fichier lisible par un homme est stocké dans le répertoire inhere).
+
+Note : Erreur commise
+
+Vous pouvez exécuter cat ./inhere/-file__ du -file00 jusqu'à avoir un fichier n'a pas de caractères inhabituels. Cela vous mènera à la solution, certes, mais ce n'est pas attendu de l'expert serge.lacombe Stickers muraux Visage clin d oeil
+
+[Étape 3] : Ici, la sortie révélera que -file07 est un texte ASCII. Donc, pour afficher le contenu de -file07 et obtenir le mot de passe, exécutez cat ./inhere/-file07.
+
+[Étape 4] : Pour vous déconnecter, exécutez exit.
+
+
+
+Solution 
+[Étape 1]
+> ssh bandit4@bandit.labs.overthewire.org -p 2220
+This is a OverTheWire game server. More information on http://www.overthewire.org/wargames
+bandit1@bandit.labs.overthewire.org's password: 2EW7BBsr6aMMoJ2HjW067dm8EgX26xNe
+
+[Étape 2]
+> bandit4@bandit:~$ file ./inhere/*
+./inhere/-file00: data
+./inhere/-file01: data
+./inhere/-file02: data
+./inhere/-file03: data
+./inhere/-file04: data
+./inhere/-file05: data
+./inhere/-file06: data
+./inhere/-file07: ASCII text
+./inhere/-file08: data
+./inhere/-file09: data
+
+[Étape 3]
+> bandit4@bandit:~$ cat ./inhere/-file07
+lrIWWI6bB37kxfiCQZqUdOIYfr6eEeqR
+
+[Étape 5]
+> bandit4@bandit:~$ exit
+logout
+Connection to bandit.labs.overthewire.org closed.
+
+Nom d'utilisateur et mot de passe du niveau 5 
+Nom d'utilisateur : bandit5
+Mot de passe : lrIWWI6bB37kxfiCQZqUdOIYfr6eEeqR
+
+Continuer
+
+SOLUTION - Niveau 5 > 6
+
+Solution Niveau 5 à Niveau 6
+Informations
+Nom d'hôte : bandit.labs.overthewire.org
+Nom d'utilisateur : bandit5
+Mot de passe : lrIWWI6bB37kxfiCQZqUdOIYfr6eEeqR
+Numéro de port : 2220
+
+Commandes possibles pour résoudre ce niveau
+Les commandes proposées :
+
+Commande	Explication
+ls	lister le contenu d'un répertoire
+cd	changer le répertoire de travail 
+cat	concaténer des fichiers et les imprimer sur la sortie standard
+file	déterminer le type de fichier 
+du	estimer l'utilisation de l'espace des fichiers
+find	rechercher de fichiers dans une hiérarchie de répertoires
+Note : Les commandes listées ci-dessus ne sont pas toutes utiles.
+
+
+Pour trouver le mot de passe du niveau 6
+[Étape 1] : Connectez-vous au compte avec le nom d'utilisateur et le mot de passe indiqués ci-dessus.
+
+[Étape 2] : En fonction des propriétés données, exécutez find ./ -type f -readable ! -executable -size 1033c pour trouver le fichier qui correspond aux propriétés spécifiées.
+
+Option	Explication
+. ou ./	Se réfère au répertoire de travail actuel
+-type f	Le fichier est de type : regular file
+-readable	Correspond aux fichiers qui sont lisibles
+-executable	Correspond aux fichiers qui sont exécutables et les répertoires qui sont consultables 
+! -executable	Correspond aux fichiers qui ne sont PAS exécutables et les répertoires qui ne sont PAS consultables
+-size 1033c	Le fichier utilise 1033 unités d'espace.  'c' fait référence à des octets
+[Étape 3] : Pour afficher le contenu du fichier correspondant et obtenir le mot de passe, exécutez la commande cat ./inhere/maybehere07/.file2.
+
+[Étape 4] : Pour vous déconnecter, exécutez exit.
+
+
+
+Solution 
+[Étape 1]
+> ssh bandit5@bandit.labs.overthewire.org -p 2220
+This is a OverTheWire game server. More information on http://www.overthewire.org/wargames
+bandit1@bandit.labs.overthewire.org's password: 2EW7BBsr6aMMoJ2HjW067dm8EgX26xNe
+
+[Étape 2]
+> bandit5@bandit:~$ find ./ -type f readable ! -executable -size 1033c
+./inhere/maybehere07/.file2
+
+[Étape 3]
+> bandit5@bandit:~$ cat ./inhere/maybehere07/.file2
+P4L4vucdmLnm8I7Vl7jG1ApGSfjYKqJU
+
+[Étape 5]
+> bandit5@bandit:~$ exit
+logout
+Connection to bandit.labs.overthewire.org closed.
+
+Nom d'utilisateur et mot de passe du niveau 6 
+Nom d'utilisateur : bandit6
+Mot de passe : P4L4vucdmLnm8I7Vl7jG1ApGSfjYKqJU
+
+Continuer
+
+SOLUTION - Niveau 6 > 7
+
+Solution Niveau 6 à Niveau 7
+Informations
+Nom d'hôte : bandit.labs.overthewire.org
+Nom d'utilisateur : bandit6
+Mot de passe : P4L4vucdmLnm8I7Vl7jG1ApGSfjYKqJU
+Numéro de port : 2220
+
+Commandes possibles pour résoudre ce niveau
+Les commandes proposées :
+
+Commande	Explication
+ls	lister le contenu d'un répertoire
+cd	changer le répertoire de travail 
+cat	concaténer des fichiers et les imprimer sur la sortie standard
+file	déterminer le type de fichier 
+du	estimer l'utilisation de l'espace des fichiers
+find	rechercher de fichiers dans une hiérarchie de répertoires
+Note : Les commandes listées ci-dessus ne sont pas toutes utiles.
+
+
+Pour trouver le mot de passe du niveau 7
+[Étape 1] : Connectez-vous au compte avec le nom d'utilisateur et le mot de passe indiqués ci-dessus.
+
+[Étape 2] : Après s'être connecté, nous nous trouvons dans le répertoire personnel. Contrairement aux niveaux précédents, nous ne savons pas où se trouve le fichier. Par conséquent, nous devons chercher dans tout le système. Ainsi, nous devons trouver le fichier à partir du répertoire racine (root) / . Ainsi, nous pouvons soit :
+
+Exécuter find / au lieu de find ./ ou
+Exécuter cd / puis exécuter find ./
+Ensuite, en fonction des propriétés données, nous ajouterons -user bandit7 -group bandit6 -size 33c pour spécifier le nom de l'utilisateur, le nom du groupe et la taille du fichier respectivement.
+
+Option	Explication
+/
+
+./
+
+Se réfère au répertoire root
+
+Se réfère au répertoire actuel de travail
+
+-user bandit7
+
+Le fichier est la propriété de l'utilisateur bandit7
+-group bandit6	Le fichier est la propriété du groupe bandit6
+-size 33c	
+Le fichier utilise 33 unités d'espace.  'c' fait référence à des octets
+
+Note :
+Pour éliminer tout message d'erreur, vous pouvez ajouter 2>dev/null à la fin de la commande find
+
+[Étape 3] : Pour afficher le contenu de /var/lib/dpkg/info/bandit7.password, exécutez cat /var/lib/dpkg/info/bandit7.password
+
+[Étape 4] : Pour vous déconnecter, exécutez exit.
+
+
+
+Solution 
+[Étape 1]
+> ssh bandit6@bandit.labs.overthewire.org -p 2220
+This is a OverTheWire game server. More information on http://www.overthewire.org/wargames
+bandit1@bandit.labs.overthewire.org's password: P4L4vucdmLnm8I7Vl7jG1ApGSfjYKqJU
+
+[Étape 2]
+> bandit6@bandit:~$ find / -user bandit7 -group bandit6 -size 33c 2>/dev/null
+/var/lib/dpkg/info/bandit7.password
+
+[Étape 3]
+> bandit6@bandit:~$ cat /var/lib/dpkg/info/bandit7.password
+z7WtoNQU2XfjmMtWA8u5rN4vzqu4v99S
+
+[Étape 5]
+> bandit6@bandit:~$ exit
+logout
+Connection to bandit.labs.overthewire.org closed.
+
+Nom d'utilisateur et mot de passe du niveau 7 
+Nom d'utilisateur : bandit7
+Mot de passe : z7WtoNQU2XfjmMtWA8u5rN4vzqu4v99S
+
+Continuer
+
+SOLUTION - Niveau 7 > 8
+
+Solution Niveau 7 à Niveau 8
+Informations
+Nom d'hôte : bandit.labs.overthewire.org
+Nom d'utilisateur : bandit7
+Mot de passe : z7WtoNQU2XfjmMtWA8u5rN4vzqu4v99S
+Numéro de port : 2220
+
+Commandes possibles pour résoudre ce niveau
+Les commandes proposées :
+
+Commande	Explication                                                                                                                                                               
+grep	Affiche les lignes correspondant à un PATTERN 
+sort	Trie les lignes des fichiers texte
+uniq	Signale ou omet les lignes répétées
+strings	Affiche les chaînes de caractères imprimables dans les fichiers
+base64	Code/décode les données et les affiche sur la sortie standard
+tr	Traduit ou supprime des caractères
+tar	La version GNU de l'utilitaire d'archivage tar 
+gzip	Compresse ou décompresse des fichiers
+bzip2	Outil de compression de fichiers à tri par blocs, v1.0.6
+xxd	Crée un hexdump ou l'inverse
+Note : Les commandes listées ci-dessus ne sont pas toutes utiles.
+
+
+Pour trouver le mot de passe du niveau 8
+[Étape 1] : Connectez-vous au compte avec le nom d'utilisateur et le mot de passe indiqués ci-dessus.
+
+[Étape 2] : Après s'être connecté, vous serez dans le répertoire personnel. En exécutant ls , vous verrez que data.txt se trouve dans le répertoire personnel. Par conséquent, vous n'avez pas besoin d'exécuter cd.
+
+[Étape 3] : Maintenant, il y a deux façons d'afficher le mot à côté du mot "millionth".
+
+[Méthode 1] Utilisation de grep 
+
+Notes sur la commande grep :
+grep signifie recherche globale d'une expression régulière et impression de celle-ci (Global search for Regular Expression and Print out).
+grep recherche les PATTERNS (expression régulière) dans chaque FILE (fichier).
+La syntaxe de grep :
+
+grep [OPTION] PATTERNS [FILE…]
+Dans le cas présent,
+
+PATTERNS : "millionth"
+FILE : data.txt
+Ainsi, la commande à exécuter est grep "millionth" data.txt
+
+[Méthode 2] Utilisation de l'opérateur de pipe
+
+Note sur l'opérateur de pipe :
+
+L'opérateur pipe (| ou |&) de Linux prend la sortie standard d'une commande et la canalise vers l'entrée standard de la commande suivante.
+
+Sous Linux, un pipe n'est pas une commande, mais un opérateur de contrôle.
+La syntaxe de pipe (|) : 
+
+Commande 1 | Commande 2 | Commande 3 | ... | Commande N
+Dans le cas présent, la commande à exécuter est cat data.txt | grep "millionth".
+
+Explication : 
+
+Pour rechercher le mot 'millionth' dans le fichier data.txt, il faut d'abord lire son contenu. Pour lire son contenu, vous pouvez utiliser la commande cat en lui passant le chemin vers data.txt en entrée. Le contenu de data.txt est ensuite passé en entrée à la commande grep accompagné par 'millionth' comme deuxième entrée. Ainsi, vous avez recherché le mot 'millionth' dans le contenu de data.txt. C'est comme si vous avez exécuté grep 'millionth' [contenu_du_fichier_data_.txt].
+
+[Étape 4] : Pour vous déconnecter, exécutez exit.
+
+
+
+Solution 
+[Étape 1]
+> ssh bandit7@bandit.labs.overthewire.org -p 2220
+This is a OverTheWire game server. More information on http://www.overthewire.org/wargames
+bandit1@bandit.labs.overthewire.org's password: z7WtoNQU2XfjmMtWA8u5rN4vzqu4v99S
+
+[Étape 2]
+> bandit7@bandit:~$ ls
+data.txt
+
+[Étape 3]
+> bandit7@bandit:~$ grep 'millionth' data.txt OR cat data.txt | grep 'millionth'
+millionth     TESKZC0XvTetK0S9xNwm25STk5iWrBvP
+
+[Étape 4]
+> bandit7@bandit:~$ exit
+logout
+Connection to bandit.labs.ovethewire.org closed.
+
+Nom d'utilisateur et mot de passe du niveau 8 
+Nom d'utilisateur : bandit8
+Mot de passe : TESKZC0XvTetK0S9xNwm25STk5iWrBvP
+
+Continuer
+
+SOLUTION - Niveau 8 > 9
+
+Solution Niveau 8 à Niveau 9
+Informations
+Nom d'hôte : bandit.labs.overthewire.org
+Nom d'utilisateur : bandit8
+Mot de passe : TESKZC0XvTetK0S9xNwm25STk5iWrBvP
+Numéro de port : 2220
+
+Commandes possibles pour résoudre ce niveau
+Les commandes proposées :
+
+Commande	Explication                                                                                                                                                               
+grep	Affiche les lignes correspondant à un PATTERN 
+sort	Trie les lignes des fichiers texte
+uniq	Signale ou omet les lignes répétées
+strings	Affiche les chaînes de caractères imprimables dans les fichiers
+base64	Code/décode les données et les affiche sur la sortie standard
+tr	Traduit ou supprime des caractères
+tar	La version GNU de l'utilitaire d'archivage tar 
+gzip	Compresse ou décompresse des fichiers
+bzip2	Outil de compression de fichiers à tri par blocs, v1.0.6
+xxd	Crée un hexdump ou l'inverse
+Note : Les commandes listées ci-dessus ne sont pas toutes utiles.
+
+
+Pour trouver le mot de passe du niveau 9
+[Étape 1] : Connectez-vous au compte avec le nom d'utilisateur et le mot de passe indiqués ci-dessus.
+
+[Étape 2] : Après s'être connecté, vous serez dans le répertoire personnel. En exécutant ls , vous verrez que data.txt se trouve dans le répertoire personnel. Par conséquent, vous n'avez pas besoin d'exécuter cd.
+
+[Étape 3] : Pour trouver la ligne unique, il y a 2 façons :
+
+cat data.txt | sort | uniq -u
+sort data.txt | uniq -u 
+Note : Erreurs commises
+
+cat data.txt | uniq 
+Cela ne marche pas car d'après la description de uniq, il ne fait que "Filtrer les lignes adjacentes correspondantes". En d'autres termes, uniq n'est pas capable de détecter les lignes dupliquées à moins qu'elles ne soient adjacentes. Par conséquent, le fichier doit être trié à l'aide de sort data.txt pour que les lignes répétées soient regroupées.
+cat data.txt | sort | uniq
+Cela ne marche pas car d'après la description de uniq, "Sans options, les lignes correspondantes sont fusionnées à la première occurrence". Ce n'est pas ce que nous voulons. Ainsi, nous ajoutons l'option -u pour "afficher uniquement les lignes uniques".
+[Étape 4] : Pour vous déconnecter, exécutez exit.
+
+
+
+Solution 
+[Étape 1]
+> ssh bandit8@bandit.labs.overthewire.org -p 2220
+This is a OverTheWire game server. More information on http://www.overthewire.org/wargames
+bandit1@bandit.labs.overthewire.org's password: TESKZC0XvTetK0S9xNwm25STk5iWrBvP
+
+[Étape 2]
+> bandit8@bandit:~$ ls
+data.txt
+
+[Étape 3]
+> bandit8@bandit:~$ cat data.txt | sort | uniq -u OR sort data.txt | uniq -u
+EN632PlfYiZbn3PhVK3XOGSlNInNE00t
+
+[Étape 4]
+> bandit8@bandit:~$ exit
+logout
+Connection to bandit.labs.overthewire.org closed
+
+Nom d'utilisateur et mot de passe du niveau 9
+Nom d'utilisateur : bandit9
+Mot de passe : EN632PlfYiZbn3PhVK3XOGSlNInNE00t
+
+Continuer
+
+SOLUTION - Niveau 9 > 10
+
+Solution Niveau 9 à Niveau 10
+Informations
+Nom d'hôte : bandit.labs.overthewire.org
+Nom d'utilisateur : bandit9
+Mot de passe : EN632PlfYiZbn3PhVK3XOGSlNInNE00t
+Numéro de port : 2220
+
+Commandes possibles pour résoudre ce niveau
+Les commandes proposées :
+
+Commande	Explication                                                                                                                                                               
+grep	Affiche les lignes correspondant à un PATTERN 
+sort	Trie les lignes des fichiers texte
+uniq	Signale ou omet les lignes répétées
+strings	Affiche les chaînes de caractères imprimables dans les fichiers
+base64	Code/décode les données et les affiche sur la sortie standard
+tr	Traduit ou supprime des caractères
+tar	La version GNU de l'utilitaire d'archivage tar 
+gzip	Compresse ou décompresse des fichiers
+bzip2	Outil de compression de fichiers à tri par blocs, v1.0.6
+xxd	Crée un hexdump ou l'inverse
+Note : Les commandes listées ci-dessus ne sont pas toutes utiles.
+
+
+Pour trouver le mot de passe du niveau 10
+[Étape 1] : Connectez-vous au compte avec le nom d'utilisateur et le mot de passe indiqués ci-dessus.
+
+[Étape 2] : Après s'être connecté, vous serez dans le répertoire personnel. En exécutant ls , vous verrez que data.txt se trouve dans le répertoire personnel. Par conséquent, vous n'avez pas besoin d'exécuter cd.
+
+[Étape 3] : L'exécution de file data.txt affichera :
+
+
+Selon la page de manuel de file, si le type de fichier est data, "les données sont généralement 'binaires' ou non imprimables". Il ne s'agit donc pas d'un fichier ASCII en texte clair.
+
+"strings est principalement utile pour déterminer le contenu des fichiers non textuels."
+Ainsi, pour obtenir les chaînes de caractères lisibles par un homme, vous pouvez exécuter strings data.txt.
+
+Puisque le mot de passe est précédé de plusieurs caractères '=', vous pouvez utiliser une expression régulière. (Si vous entendez "expression régulière" pour la première fois, jetez un coup d'oeil sur Expressions régulières - Le dernier guide). L'expression régulière qui correspond à l'expression "précède de plusieurs caractères =" est : '=+'
+
+[RAPPEL] La syntaxe de grep :
+
+grep [OPTION] PATTERNS [FILE…]
+Par ailleurs, pour que la commande grep "interprète les PATTERNS comme des expressions régulières", vous devez lui passer l'OPTION -E avec PATTERNS : "=+".
+
+Ainsi, pour obtenir le mot de passe, il suffit d'exécuter la commande strings data.txt | grep -E "=+".
+
+Note : Erreur commise
+
+grep -E "=+" data.txt
+Cela ne permet pas d'obtenir les résultats escomptés, car le fichier data.txt est un fichier binaire et non un fichier ASCII en texte clair.
+[Étape 4] : Pour vous déconnecter, exécutez exit.
+
+
+
+Solution 
+[Étape 1]
+> ssh bandit9@bandit.labs.overthewire.org -p 2220
+This is a OverTheWire game server. More information on http://www.overthewire.org/wargames
+bandit1@bandit.labs.overthewire.org's password: EN632PlfYiZbn3PhVK3XOGSlNInNE00t
+
+[Étape 2]
+> bandit9@bandit:~$ ls
+data.txt
+
+[Étape 3]
+> bandit9@bandit:~$ file data.txt
+data.txt : data
+> bandit9@bandit:~$ strings data.txt | grep -E "=+"
+c========== the
+I2=Z
+K=y3>
+!=j$u
+h;========== password
+========== isT
+E=XQ
+[Qi#Z=c
+i=|V
+!/=j>:]zx
+r>i"=
+XZ>~=
+n.E========== G7w8LIi6J3kTb8A7j9LgrywtEUlyyp6s
+~UtFS=
+eY4<={_
+
+[Étape 4]
+> bandit9@bandit:~$ exit
+logout
+Connection to bandit.labs.overthewire.org closed
+
+Nom d'utilisateur et mot de passe du niveau 10
+Nom d'utilisateur : bandit10
+Mot de passe : G7w8LIi6J3kTb8A7j9LgrywtEUlyyp6s
+
+Continuer
+
+
+SOLUTION - Niveau 10 > 11
+
+Solution Niveau 10 à Niveau 11
+Informations
+Nom d'hôte : bandit.labs.overthewire.org
+Nom d'utilisateur : bandit10
+Mot de passe : G7w8LIi6J3kTb8A7j9LgrywtEUlyyp6s
+Numéro de port : 2220
+
+Commandes possibles pour résoudre ce niveau
+Les commandes proposées :
+
+Commande	Explication                                                                                                                                                               
+grep	Affiche les lignes correspondant à un PATTERN 
+sort	Trie les lignes des fichiers texte
+uniq	Signale ou omet les lignes répétées
+strings	Affiche les chaînes de caractères imprimables dans les fichiers
+base64	Code/décode les données et les affiche sur la sortie standard
+tr	Traduit ou supprime des caractères
+tar	La version GNU de l'utilitaire d'archivage tar 
+gzip	Compresse ou décompresse des fichiers
+bzip2	Outil de compression de fichiers à tri par blocs, v1.0.6
+xxd	Crée un hexdump ou l'inverse
+Note : Les commandes listées ci-dessus ne sont pas toutes utiles.
+
+
+Informations complémentaires
+Base64
+Base64 est un groupe de schémas de codage binaire-texte qui représente les données binaires en séquences de 24 bits. 
+
+
+
+Source : Base64 - Wikipedia
+
+Codage
+Sous Linux, les options -e ou --encode permettent de coder n'importe quelle donnée provenant d'un fichier ou de l'entrée standard. Elles sont passées par défaut à la commande base64 si vous ne précisez aucune option.
+Pour coder, il y a quelques méthodes :
+
+base64 nomfichier.txt ou base64 'string'
+echo nomfichier.txt | base64 ou echo 'string' | base64
+Cela codera les données du fichier nom_fichier.txt ou la chaîne de caractères 'string' et affichera les données codées en sortie dans le terminal.
+
+Décodage
+Les options -d ou --decode permettent de décoder les données codées par la base 64 à partir de n'importe quel fichier ou de l'entrée standard.
+Pour décoder, il y a quelques méthodes :
+
+base64 -d nom_fichier.txt ou base64 -d 'encodedString'
+echo nomfichier.txt | base64 --decode ou echo 'encodedString' | base64 --decode
+Cela décodera les données dans nomfichier.txt ou la chaîne codée 'encodedString' et affichera les données décodées (texte original) comme sortie dans le terminal.
+
+Note
+Encoding ≠ Encrypting
+Codage ≠ Chiffrement
+Pour plus de détails sur leur différence :
+Différence entre codage et chiffrement
+Codage vs. chiffrement vs. hachage vs. obscurcissement
+
+
+Pour trouver le mot de passe du niveau 11
+[Étape 1] : Connectez-vous au compte avec le nom d'utilisateur et le mot de passe indiqués ci-dessus.
+
+[Étape 2] : Après s'être connecté, vous serez dans le répertoire personnel. En exécutant ls , vous verrez que data.txt se trouve dans le répertoire personnel. Par conséquent, vous n'avez pas besoin d'exécuter cd.
+
+[Étape 3] : L'exécution de file data.txt affichera :
+
+
+
+ASCII text signifie qu'il s'agit d'un fichier ASCII en texte clair. Et donc, contrairement au niveau précédent, le fichier est imprimable. Par conséquent, vous pouvez exécuter cat data.txt. Vous verrez des caractères aléatoires. Ce sont des données codées en base64 :
+
+
+
+Il y a 2 façons de décoder data.txt. Soit vous exécutez
+
+base64 -d data.txt
+cat data.txt | base64 -decode
+[Étape 4] : Pour vous déconnecter, exécutez exit.
+
+
+
+Solution 
+[Étape 1]
+> ssh bandit10@bandit.labs.overthewire.org -p 2220
+This is a OverTheWire game server. More information on http://www.overthewire.org/wargames
+bandit1@bandit.labs.overthewire.org's password: G7w8LIi6J3kTb8A7j9LgrywtEUlyyp6s
+
+[Étape 2]
+> bandit10@bandit:~$ ls
+data.txt
+
+[Étape 3]
+> bandit10@bandit:~$ file data.txt
+data.txt : ASCII text
+> bandit10@bandit:~$ base64 -d data.txt OR cat data.txt | base64 -decode
+The password is 6zPeziLdR2RKNdNYFNb6nVCKzphlXHBM
+
+[Étape 4]
+> bandit10@bandit:~$ exit
+logout
+Connection to bandit.labs.overthewire.org closed
+
+Nom d'utilisateur et mot de passe du niveau 11
+Nom d'utilisateur : bandit11
+Mot de passe : 6zPeziLdR2RKNdNYFNb6nVCKzphlXHBM
+
+Continuer
+
+
+Solution Niveau 11 à Niveau 12
+Informations
+Nom d'hôte : bandit.labs.overthewire.org
+Nom d'utilisateur : bandit11
+Mot de passe : 6zPeziLdR2RKNdNYFNb6nVCKzphlXHBM
+Numéro de port : 2220
+
+Commandes possibles pour résoudre ce niveau
+Les commandes proposées :
+
+Commande	Explication                                                                                                                                                               
+grep	Affiche les lignes correspondant à un PATTERN 
+sort	Trie les lignes des fichiers texte
+uniq	Signale ou omet les lignes répétées
+strings	Affiche les chaînes de caractères imprimables dans les fichiers
+base64	Code/décode les données et les affiche sur la sortie standard
+tr	Traduit ou supprime des caractères
+tar	La version GNU de l'utilitaire d'archivage tar 
+gzip	Compresse ou décompresse des fichiers
+bzip2	Outil de compression de fichiers à tri par blocs, v1.0.6
+xxd	Crée un hexdump ou l'inverse
+Note : Les commandes listées ci-dessus ne sont pas toutes utiles.
+
+
+Pour trouver le mot de passe du niveau 12
+[Étape 1] : Connectez-vous au compte avec le nom d'utilisateur et le mot de passe indiqués ci-dessus.
+
+[Étape 2] : Après s'être connecté, vous serez dans le répertoire personnel. En exécutant ls , vous verrez que data.txt se trouve dans le répertoire personnel. Par conséquent, vous n'avez pas besoin d'exécuter cd.
+
+[Étape 3] : Ensuite, exécutez cat data.txt pour afficher le contenu de data.txt. Cela affichera le texte codé en ROT13 :
+
+
+
+[Étape 4] : Comme indiqué dans la description, toutes les lettres minuscules et majuscules ont été tournées de 13 positions. En d'autres termes, a devient n & n devient a. b devient o & o devient b et ainsi de suite.
+
+
+
+Sous Linux, cette traduction est réalisé par la commande tr.
+
+Note : La syntaxe de la commande tr
+
+cat nomfichier.txt | tr "string1" "string2"
+Exemple :
+
+Pour décoder le contenu d'un fichier texte index.txt en TOUTES majuscules, nous pouvons faire ce qui suit :
+
+>../folderName$ cat index.txt
+Hello World%    
+>../folderName$ cat index.txt | tr "a-z" "A-Z"
+HELLO WORLD%
+Dans le cas présent, pour décoder le contenu du fichier data.txt, la commande à utiliser est tr "A-Za-z" "N-ZA-Mn-za-m". Cela signifie que pour :
+
+Les majuscules : Mapper de A-Z à N-ZA-M
+Minuscules : Mapper de a-z à n-za-m
+Ainsi, l'une des commandes suivantes affichera le contenu décodé du fichier data.txt :
+
+cat data.txt | tr "A-Za-z" "N-ZA-Mn-za-m" 
+cat data.txt | tr "a-zA-Z" "n-za-mN-ZA-M"
+cat data.txt | tr "[a-zA-Z]" "n-za-mN-ZA-M"
+cat data.txt | tr "n-za-mN-ZA-M" "a-zA-Z"
+[Étape 5] : Pour vous déconnecter, exécutez exit.
+
+
+
+Solution 
+[Étape 1]
+> ssh bandit11@bandit.labs.overthewire.org -p 2220
+This is a OverTheWire game server. More information on http://www.overthewire.org/wargames
+bandit1@bandit.labs.overthewire.org's password: 6zPeziLdR2RKNdNYFNb6nVCKzphlXHBM
+
+[Étape 2]
+> bandit11@bandit:~$ ls
+data.txt
+
+[Étape 3]
+> bandit11@bandit:~$ cat data.txt
+Gur cnffjbeq vf WIAOOSFzMjXXBC0KoSKBbJ8puQm5lIEi
+
+[Étape 4]
+> bandit11@bandit:~$ cat data.txt | tr '[a-z][A-Z]' '[n-za-m][N-ZA-M]'
+The password is JVNBBFSmZwKKOP0XbFXOoW8chDz5yVRv
+
+[Étape 5]
+> bandit11@bandit:~$ exit
+logout
+Connection to bandit.labs.overthewire.org closed
+
+Nom d'utilisateur et mot de passe du niveau 12
+Nom d'utilisateur : bandit12
+Mot de passe : JVNBBFSmZwKKOP0XbFXOoW8chDz5yVRv
+
+Continuer
+
+SOLUTION - Niveau 12 > 13
+
+Solution Niveau 12 à Niveau 13
+Informations
+Nom d'hôte : bandit.labs.overthewire.org
+Nom d'utilisateur : bandit12
+Mot de passe : JVNBBFSmZwKKOP0XbFXOoW8chDz5yVRv
+Numéro de port : 2220
+
+Commandes possibles pour résoudre ce niveau
+Les commandes proposées :
+
+Commande	Explication                                                                                                                                                               
+grep	Affiche les lignes correspondant à un PATTERN 
+sort	Trie les lignes des fichiers texte
+uniq	Signale ou omet les lignes répétées
+strings	Affiche les chaînes de caractères imprimables dans les fichiers
+base64	Code/décode les données et les affiche sur la sortie standard
+tr	Traduit ou supprime des caractères
+tar	La version GNU de l'utilitaire d'archivage tar 
+gzip	Compresse ou décompresse des fichiers
+bzip2	Outil de compression de fichiers à tri par blocs, v1.0.6
+xxd	Crée un hexdump ou l'inverse
+Note : Les commandes listées ci-dessus ne sont pas toutes utiles.
+
+
+Pour trouver le mot de passe du niveau 13
+[# Étape 1] : Connectez-vous et connectez-vous au compte avec le nom d'utilisateur et le mot de passe indiqués ci-dessus.
+[# Étape 2] : Après la connexion, nous serons dans le répertoire personnel . L'exécutionlsverradata.txtest juste dans le répertoire personnel. Par conséquent, nous n'avons pas à effectuercd.
+
+[# Étape 3] : Comme mentionné dans la description,data.txtil s'agit d'un vidage hexadécimal d'un fichier qui a été compressé à plusieurs reprises . Pour obtenir le mot de passe pour le niveau suivant, plusieurs opérations de décompression sur le fichier doivent être effectuées. Par conséquent, cela apporterait des MODIFICATIONS au répertoire courant. Malheureusement, nous n'avons PAS les permissions d'écriture. À ce titre, il est suggéré de créer un répertoire sous/tmppour effectuer nos activités.
+
+mkdir /tmp/myname123 # Créer un dossier sous le répertoire /tmp 
+cp data.txt /tmp/myname123 # Copier data.txt dans le dossier myname123 
+cd /tmp/myname123 # Naviguer dans le dossier myname123 
+ls                             # Verra data.txt
+[# Étape 4] : Ensuite, exécutezfile data.txt, ce qui affichera. C'est le type de fichier. Contrairement au niveau 9, oùsortira. Dans ce cas,signifie qu'il s'agit d'un fichier ASCII en clair. Ainsi, il est imprimable . Par conséquent, nous pouvons exécuter, dont nous verrons le contenu d'un fichier hexdump :data.txt: ASCII textfile data.txtdataASCII textcat data.txt
+
+00000000 : 1f8b 0808 0650 b45e 0203 6461 7461 322e .....P.^..data2. 
+: 9e7f 4f76 
+9fcf 
+fe7d 3fff f67d abde 5e9f ..Ov...}?..}..^. 
+[...]
+[# Étape 5] : étant donné que le fichier est un vidage hexadécimal d'un fichier,
+utilisationxxd -r <inputFile> <outputFile>de la commande :
+
+Tout d'abord, reconvertissez un vidage hexadécimal dans sa forme BINAIRE d'origine .
+Ensuite, envoyé les résultats au outputFilespécifié.
+[REMARQUE] :
+SioutputFilen'est PAS fourni (ou si un caractère '-' est à sa place), les résultats sont envoyés à la sortie standard à la place.
+
+Par conséquent, exécutez xxd -r data.txt datapour effectuer un vidage hexadécimal inversé et une sortie dans un fichier nommé data.
+
+[# Étape 6] : Exécutezfile datala commande pour afficher le type de fichier.
+
+bandit12@bandit:/tmp/myname123$  file data 
+data : données compressées gzip , était "data2.bin", dernière modification : jeudi 7 mai 18:14:30 2020, compression maximale, depuis Unix
+[# Étape 7] : Afin de décompresser un fichier avec succès, nous devons CONNAÎTRE la bonne EXTENSION du fichier et convertir le fichier en son type de fichier approprié.
+
+En tant que tel, le flux pour décompresser le compressé à plusieurs reprises data.txtressemble à ceci :
+
+Tout d'abord, utilisez file <fileName>la commande pour DÉTERMINER le type de fichier du fichier OUTPUT.
+Deuxièmement, utilisez mv <source> <target>la commande pour CHANGER le fichier de sortie en son type de fichier approprié indiqué dans les étapes précédentes.
+Troisièmement, décompressez/décompressez les fichiers à l'aide du type de commande approprié en fonction de l'extension de fichier affichée à la 1ère étape :
+
+┌─────────────────────────────────────── ─┬──────── ─────────────────┐ 
+|     fichier <fileName> Message de sortie |  Commande pour décompresser   | 
+├─────────────────────────────────────── ─┼──────── ─────────────────┤ 
+| nom_fichier.gz : données compressées gzip | gzip -d <nom_fichier. gz > | 
+| nom_fichier : données compressées bzip2 | bzip2 -d <NomFichier. bz2 > | 
+| nom_fichier : archive tar POSIX (GNU) | tar xvf <nom_fichier. goudron > | 
+└─────────────────────────────────────── ─┴──────── ─────────────────┘
+┌─────────┬───────────────────────────── ────────── ────────┐ 
+│ Options │ Explication ( tar -xvf <fileName> ) │ 
+├─────────┼────────── ─────── ──────────────────────────────┤ 
+│ x │ Extraire l'archive 
+informations détaillées │ 
+│ f │ Crée le archive avec le < fileName > donné │ 
+└─────────┴───────────────────────── ────── ────────────────┘
+4. Répétez le processus ci-dessus jusqu'à ce que l'exécution file <target>affiche un type de fichier ASCII text.
+
+5. Si ci-dessus retour ASCII text, puis exécutez cat <target>pour afficher le mot de passe dans le fichier target.
+
+[#Étape 8] : Exécutezrm -rf /tmp/myname123pour supprimer le dossier temporaire créé/tmp/myname123.
+
+[# Étape 9] : Pour vous déconnecter, exécutezexit.
+
+
+
+Solution 
+[# Step 1]
+>  ssh bandit12@bandit.labs.overthewire.org -p 2220
+This is a OverTheWire game server. More information on http://www.overthewire.org/wargames
+bandit12@bandit.labs.overthewire.org's password: 5Te8Y4drgCRfCx8ugdwuEX8KFC6k2EUu
+
+[# Step 2]
+bandit12@bandit:~$ ls
+data.txt
+
+[# Step 3]
+bandit12@bandit:~$ mkdir /tmp/myname123
+bandit12@bandit:~$ cp data.txt /tmp/myname123
+bandit12@bandit:~$ cd /tmp/myname123
+bandit12@bandit:/tmp/myname123$ ls
+data.txt
+
+[# Step 4]
+bandit12@bandit:/tmp/myname123$ file data.txt
+data.txt: ASCII text
+bandit12@bandit:/tmp/myname123$ cat data.txt
+00000000: 1f8b 0808 0650 b45e 0203 6461 7461 322e  .....P.^..data2.
+00000010: 6269 6e00 013d 02c2 fd42 5a68 3931 4159  bin..=...BZh91AY
+00000020: 2653 598e 4f1c c800 001e 7fff fbf9 7fda  &SY.O...........
+00000030: 9e7f 4f76 9fcf fe7d 3fff f67d abde 5e9f  ..Ov...}?..}..^.
+[...]
+
+[# Step 5]
+bandit12@bandit:/tmp/myname123$ xxd -r data.txt data
+
+[# Step 6]
+bandit12@bandit:/tmp/myname123$ file data
+data: gzip compressed data, was "data2.bin", last modified: Thu May  7 18:14:30 2020, max compression, from Unix
+
+[# Step 7]
+bandit12@bandit:/tmp/myname123$ file data
+data: gzip compressed data, was "data2.bin", last modified: Thu May  7 18:14:30 2020, max compression, from Unix
+bandit12@bandit:/tmp/myname123$ mv data data.gz
+bandit12@bandit:/tmp/myname123$ gzip -d data.gz
+bandit12@bandit:/tmp/myname123$ file data
+data: bzip2 compressed data, block size = 900k
+bandit12@bandit:/tmp/myname123$ mv data data.bz2
+bandit12@bandit:/tmp/myname123$ bzip2 -d data.bz2
+bandit12@bandit:/tmp/myname123$ file data
+data: gzip compressed data, was "data4.bin", last modified: Thu May  7 18:14:30 2020, max compression, from Unix
+bandit12@bandit:/tmp/myname123$ mv data data.gz
+bandit12@bandit:/tmp/myname123$ gzip -d data.gz
+bandit12@bandit:/tmp/myname123$ file data
+data: POSIX tar archive (GNU)
+bandit12@bandit:/tmp/myname123$ mv data data.tar
+bandit12@bandit:/tmp/myname123$ tar xvf data.tar
+data5.bin
+bandit12@bandit:/tmp/myname123$ file data5.bin
+data5.bin: POSIX tar archive (GNU)
+bandit12@bandit:/tmp/myname123$ mv data5.bin data5.tar
+bandit12@bandit:/tmp/myname123$ tar xvf data5.tar
+data6.bin
+bandit12@bandit:/tmp/myname123$ file data6.bin
+data6.bin: bzip2 compressed data, block size = 900k
+bandit12@bandit:/tmp/myname123$ mv data6.bin data6.tar
+bandit12@bandit:/tmp/myname123$ tar xvf data6.tar
+data8.bin
+bandit12@bandit:/tmp/myname123$ file data8.bin
+data8.bin: gzip compressed data, was "data9.bin", last modified: Thu May  7 18:14:30 2020, max compression, from Unix
+bandit12@bandit:/tmp/myname123$ mv data8.bin data8.gz
+bandit12@bandit:/tmp/myname123$ gzip -d data8.gz
+bandit12@bandit:/tmp/myname123$ file data8
+data8: ASCII text
+bandit12@bandit:/tmp/myname123$ cat data8
+The password is 8ZjyCRiBWFYkneahHwxCv3wb2a1ORpYL
+
+[# Step 8]
+bandit12@bandit:/tmp/myname123$ rm -rf /tmp/myname123
+
+[# Step 9]
+bandit12@bandit:/tmp/myname123$ exit
+logout
+Connection to bandit.labs.overthewire.org closed.
+
+Nom d'utilisateur et mot de passe du niveau 13
+Nom d'utilisateur : bandit13
+Mot de passe : wbWdlBxEir4CaE8LaPhauuOo6pwRmrDw
+
+Continuer
+
+
+Solution Niveau 13 à Niveau 14
+Informations
+Nom d'hôte : bandit.labs.overthewire.org
+Nom d'utilisateur : bandit13
+Mot de passe : wbWdlBxEir4CaE8LaPhauuOo6pwRmrDw
+Numéro de port : 2220
+
+Commandes possibles pour résoudre ce niveau
+Les commandes proposées :
+
+Commande	Explication                                                                                                                                                                
+ssh	OpenSSH Client SSH (programme de connexion à distance)
+telnet	Interface utilisateur du protocole TELNET
+nc	Utilitaire unix qui lit et écrit des données sur des connexions réseau,
+en utilisant les protocoles TCP ou UDP.
+openssl	Outil de ligne de commande OpenSSL
+s_client	Programme client SSL/TLS
+nmap	
+Outil d'exploration du réseau et de sécurité / scanner de ports
+
+Note : Les commande listées ci-dessus ne sont pas toute utiles.
+
+Informations complémentaires
+Jusqu'à présent, vous avez utilisé l'authentification SSH par mot de passe pour vous connecter à un serveur distant : 
+ssh <Nom d'utilisateur>@<Nom d'hôte> -p <Numéro de port> et entrer le mot de passe.
+Cependant, comme mentionné dans la page SSH/OpenSSH/Keys, l'authentification basée sur une clé est plus sécurisée que l'authentification par mot de passe.
+En bref, l'authentification par clé utilise 2 clés, une clé "publique" que tout le monde est autorisé à voir, et une autre clé "privée" que seul le propriétaire est autorisé à voir. Pour communiquer en toute sécurité à l'aide de l'authentification par clé, il faut créer une paire de clés, stocker en toute sécurité la clé privée sur l'ordinateur à partir duquel on veut se connecter et stocker la clé publique sur l'ordinateur auquel on veut se connecter.
+
+Pour trouver le mot de passe du niveau 14
+[Étape 1] : Connectez-vous au compte avec le nom d'utilisateur et le mot de passe indiqués ci-dessus.
+
+[Étape 2] : Après s'être connecté, vous serez dans le répertoire personnel. En exécutant ls , vous verrez que sshkey.private se trouve dans le répertoire personnel. Par conséquent, vous n'avez pas besoin d'exécuter cd.
+
+[Étape 3] (Facultatif) : Ensuite, exécutez la commande cat sshkey.private pour voir à quoi ressemble une clé privée RSA.
+
+[Étape 4] : Pour obtenir le mot de passe de bandit14, vous devez :
+
+Vous connecter en tant que bandit14, le nom d'hôte est localhost et le port utilisé est 2220 : ssh bandit14@localhost -p 2220
+Et utiliser le paramètre -i pour passer une clé d'authentification privée sshkey.private : -i sshkey.private
+En assemblant le tout, exécutez la commande suivante :
+
+ssh -i sshkey.private bandit14@localhost -p 2220
+Lorsque vous êtes invité à confirmer la connexion, tapez yes, puis appuyez sur Entrée.
+[Étape 5] : Le mot de passe est stocké dans /etc/bandit_pass/bandit14. Ainsi, l'exécution de cat /etc/bandit_pass/bandit14 affichera le mot de passe de bandit14.
+[Étape 6] : Pour vous déconnecter, exécutez exit.
+
+
+Solution 
+[Étape 1]
+> ssh bandit13@bandit.labs.overthewire.org -p 2220
+This is a OverTheWire game server. More information on http://www.overthewire.org/wargames
+bandit1@bandit.labs.overthewire.org's password: wbWdlBxEir4CaE8LaPhauuOo6pwRmrDw
+
+[Étape 2]
+> bandit13@bandit:~$ ls
+sshkey.private
+
+[Étape 3]
+> bandit13@bandit:~$ cat sshkey.private
+-----BEGIN RSA PRIVATE KEY-----
+MIIEpAIBAAKCAQEAxkkOE83W2cOT7IWhFc9aPaaQmQDdgzuXCv+ppZHa++buSkN+
+gg0tcr7Fw8NLGa5+Uzec2rEg0WmeevB13AIoYp0MZyETq46t+jk9puNwZwIt9XgB
+ZufGtZEwWbFWw/vVLNwOXBe4UWStGRWzgPpEeSv5Tb1VjLZIBdGphTIK22Amz6Zb
+ThMsiMnyJafEwJ/T8PQO3myS91vUHEuoOMAzoUID4kN0MEZ3+XahyK0HJVq68KsV
+ObefXG1vvA3GAJ29kxJaqvRfgYnqZryWN7w3CHjNU4c/2Jkp+n8L0SnxaNA+WYA7
+jiPyTF0is8uzMlYQ4l1Lzh/8/MpvhCQF8r22dwIDAQABAoIBAQC6dWBjhyEOzjeA
+J3j/RWmap9M5zfJ/wb2bfidNpwbB8rsJ4sZIDZQ7XuIh4LfygoAQSS+bBw3RXvzE
+pvJt3SmU8hIDuLsCjL1VnBY5pY7Bju8g8aR/3FyjyNAqx/TLfzlLYfOu7i9Jet67
+xAh0tONG/u8FB5I3LAI2Vp6OviwvdWeC4nOxCthldpuPKNLA8rmMMVRTKQ+7T2VS
+nXmwYckKUcUgzoVSpiNZaS0zUDypdpy2+tRH3MQa5kqN1YKjvF8RC47woOYCktsD
+o3FFpGNFec9Taa3Msy+DfQQhHKZFKIL3bJDONtmrVvtYK40/yeU4aZ/HA2DQzwhe
+ol1AfiEhAoGBAOnVjosBkm7sblK+n4IEwPxs8sOmhPnTDUy5WGrpSCrXOmsVIBUf
+laL3ZGLx3xCIwtCnEucB9DvN2HZkupc/h6hTKUYLqXuyLD8njTrbRhLgbC9QrKrS
+M1F2fSTxVqPtZDlDMwjNR04xHA/fKh8bXXyTMqOHNJTHHNhbh3McdURjAoGBANkU
+1hqfnw7+aXncJ9bjysr1ZWbqOE5Nd8AFgfwaKuGTTVX2NsUQnCMWdOp+wFak40JH
+PKWkJNdBG+ex0H9JNQsTK3X5PBMAS8AfX0GrKeuwKWA6erytVTqjOfLYcdp5+z9s
+8DtVCxDuVsM+i4X8UqIGOlvGbtKEVokHPFXP1q/dAoGAcHg5YX7WEehCgCYTzpO+
+xysX8ScM2qS6xuZ3MqUWAxUWkh7NGZvhe0sGy9iOdANzwKw7mUUFViaCMR/t54W1
+GC83sOs3D7n5Mj8x3NdO8xFit7dT9a245TvaoYQ7KgmqpSg/ScKCw4c3eiLava+J
+3btnJeSIU+8ZXq9XjPRpKwUCgYA7z6LiOQKxNeXH3qHXcnHok855maUj5fJNpPbY
+iDkyZ8ySF8GlcFsky8Yw6fWCqfG3zDrohJ5l9JmEsBh7SadkwsZhvecQcS9t4vby
+9/8X4jS0P8ibfcKS4nBP+dT81kkkg5Z5MohXBORA7VWx+ACohcDEkprsQ+w32xeD
+qT1EvQKBgQDKm8ws2ByvSUVs9GjTilCajFqLJ0eVYzRPaY6f++Gv/UVfAPV4c+S0
+kAWpXbv5tbkkzbS0eaLPTKgLzavXtQoTtKwrjpolHKIHUz6Wu+n4abfAIRFubOdN
+/+aLoRQ0yBDRbdXMsZN/jvY44eM+xRLdRVyMmdPtP8belRi2E2aEzA==
+-----END RSA PRIVATE KEY-----
+
+[Étape 4]
+> bandit13@bandit:~$ ssh -i sshkey.private bandit14@localhost -p 2220
+The authenticity of host '[localhost]:2220 ([127.0.0.1]:2220)' can't be established.
+ED25519 key fingerprint is SHA256:C2ihUBV7ihnV1wUXRb4RrEcLfXC5CXlhmAAM/urerLY.
+This key is not known by any other names
+Are you sure you want to continue connecting (yes/no/[fingerprint])? yes
+
+[Étape 5]
+> bandit14@bandit:~$ cat /etc/bandit_pass/bandit14
+fGrHPx402xGC7U7rXKDaxiWFTOiF0ENq
+
+[Étape 6]
+> bandit12@bandit:~$ exit
+logout
+Connection to bandit.labs.overthewire.org closed.
+
+Nom d'utilisateur et mot de passe du niveau 14
+Nom d'utilisateur : bandit14
+Mot de passe : fGrHPx402xGC7U7rXKDaxiWFTOiF0ENq
+
+Continuer
+
+
+Solution Niveau 14 à Niveau 15
+Informations
+Nom d'hôte : bandit.labs.overthewire.org
+Nom d'utilisateur : bandit14
+Mot de passe : fGrHPx402xGC7U7rXKDaxiWFTOiF0ENq
+Numéro de port : 2220
+
+Commandes possibles pour résoudre ce niveau
+Les commandes proposées :
+
+Commande	Explication                                                                                                                                                                
+ssh	OpenSSH Client SSH (programme de connexion à distance)
+telnet	Interface utilisateur du protocole TELNET
+nc	Utilitaire unix qui lit et écrit des données sur des connexions réseau,
+en utilisant les protocoles TCP ou UDP.
+openssl	Outil de ligne de commande OpenSSL
+s_client	Programme client SSL/TLS
+nmap	
+Outil d'exploration du réseau et de sécurité / scanner de ports
+
+Note : Les commandes listées ci-dessus ne sont pas toutes utiles.
+
+Pour trouver le mot de passe du niveau 15
+[Étape 1] : Connectez-vous au compte avec le nom d'utilisateur et le mot de passe indiqués ci-dessus.
+
+[Étape 2] : Pour obtenir le mot de passe de bandit15, vous devez vous connecter à localhost sur le port 30000 et soumettre le mot de passe de bandit14. Pour y parvenir, il y a 2 méthodes :
+
+[Méthode 1] En utilisant TELNET
+
+Telnet est un protocole de connexion à distance qui permet aux utilisateurs de se connecter à distance à d'autres ordinateurs (appelés hôtes) sur un réseau TCP/IP (tel que l'internet).
+En utilisant un logiciel client telnet sur votre ordinateur, les utilisateurs sont en mesure d'établir une connexion avec un serveur telnet (c'est-à-dire l'hôte distant).
+
+
+
+Syntaxe :
+
+
+telnet <nom de l'hôte> <numéro du port>
+Dans le cas présent, la commande à exécuter est telnet localhost 30000.
+
+Une fois la connexion établie, vous saisirez le mot de passe de bandit14 (stocké toujours dans /etc/bandit_pass/bandit14) et recevrez une réponse avec le mot de passe de bandit15.
+
+Solution
+
+bandit14@bandit:~$ telnet localhost 30000
+Trying 127.0.0.1...
+Connected to localhost.
+Escape character is '^]'. 
+fGrHPx402xGC7U7rXKDaxiWFTOiF0ENq            # Saisissez le mot de passe ici !
+Correct!
+jN2kgmIXJ6fShzhT2avhotn4Zcka6tnt
+Connection closed by foreign host.
+Avec le temps, l'utilisation de Telnet a diminué au profit de SSH (Secure Shell ou Secure Socket Shell) en raison des importants problèmes de sécurité liés à son utilisation sur un réseau ouvert. Telnet est dépourvu de politiques d'authentification et de cryptage des données.
+[Méthode 2] En utilisant Netcat (nc)
+
+netcat est un utilitaire unix simple qui lit et écrit des données à travers des connexions réseau, en utilisant le protocole TCP ou UDP.
+
+
+Syntaxe :
+
+
+nc <nom de l'hôte> <numéro du port>
+
+Cette commande crée une connexion TCP vers le port <numéro du port> sur l'hôte <nom de l'hôte>.
+
+
+Votre entrée standard est alors envoyée à l'hôte, et tout ce qui revient à travers la connexion est envoyé à votre sortie standard. Cette opération se poursuit indéfiniment, jusqu'à ce que le côté réseau de la connexion s'arrête.
+
+Dans le cas présent, la commande à exécuter est nc localhost 30000.
+
+Une fois la connexion établie, vous saisirez le mot de passe de bandit14 (stocké toujours dans /etc/bandit_pass/bandit14) et recevrez une réponse avec le mot de passe de bandit15.
+
+Solution 
+
+bandit14@bandit:~$ nc localhost 30000
+fGrHPx402xGC7U7rXKDaxiWFTOiF0ENq            # Saisissez le mot de passe ici !
+Correct!
+jN2kgmIXJ6fShzhT2avhotn4Zcka6tnt
+[Étape 6] : Pour vous déconnecter, exécutez exit.
+
+
+Nom d'utilisateur et mot de passe du niveau 15
+Nom d'utilisateur : bandit15
+Mot de passe : jN2kgmIXJ6fShzhT2avhotn4Zcka6tnt
+
+Continuer
+
+
+Solution Niveau 15 à Niveau 16
+Informations
+Nom d'hôte : bandit.labs.overthewire.org
+Nom d'utilisateur : bandit15
+Mot de passe :  jN2kgmIXJ6fShzhT2avhotn4Zcka6tnt
+Numéro de port : 2220
+
+Commandes possibles pour résoudre ce niveau
+Les commandes proposées :
+
+Commande	Explication                                                                                                                                                                
+ssh	OpenSSH Client SSH (programme de connexion à distance)
+telnet	Interface utilisateur du protocole TELNET
+nc	Utilitaire unix qui lit et écrit des données sur des connexions réseau,
+en utilisant les protocoles TCP ou UDP.
+openssl	Outil de ligne de commande OpenSSL
+s_client	Programme client SSL/TLS
+nmap	
+Outil d'exploration du réseau et de sécurité / scanner de ports
+
+Note : Les commande listées ci-dessus ne sont pas toute utiles.
+
+Informations complémentaires
+OpenSSL est livré avec un outil client que vous pouvez utiliser pour vous connecter à un serveur SECURISÉ.
+Cet outil est similaire à telnet ou nc, dans le sens où il gère la couche SSL/TLS mais vous permet de contrôler entièrement la couche suivante.
+
+Syntaxe :
+
+openssl s_client -connect <nom de l'hôte>:<numéro de port>
+
+Une fois que vous aurez tapé la commande, vous verrez de nombreux résultats de diagnostic (nous y reviendrons dans un instant), puis vous aurez la possibilité de taper ce que vous voulez.
+
+
+Pour trouver le mot de passe du niveau 16
+[Étape 1] : Connectez-vous au compte avec le nom d'utilisateur et le mot de passe indiqués ci-dessus.
+
+[Étape 2] : Dans ce niveau, le défi est similaire au précédent. Cependant, il nécessite l'utilisation du cryptage SSL. En d'autres termes, nous devons soumettre le mot de passe de bandit15 à localhost sur le port 30001 à travers une communication cryptée.
+
+Pour se faire, il suffit d'exécuter la commande : openssl s_client -cpnnect localhost:30001.
+
+[Étape 3] : Une fois la commande exécutée, vous devez taper le mot de passe de bandit15 pour obtenir celui de bandit16.
+
+[Étape 4] : Pour vous déconnecter, exécutez exit.
+
+
+Solution 
+[Étape 1]
+> ssh bandit15@bandit.labs.overthewire.org -p 2220
+This is a OverTheWire game server. More information on http://www.overthewire.org/wargames
+bandit1@bandit.labs.overthewire.org's password: jN2kgmIXJ6fShzhT2avhotn4Zcka6tnt
+
+[Étape 2 et 3]
+> bandit15@bandit:~$ openssl s_client -connect localhost:30001
+CONNECTED(00000003)
+depth=0 CN = localhost
+verify error:num=18:self signed certificate
+verify return:1
+depth=0 CN = localhost
+verify return:1
+[...]
+Start Time: 1592837631
+    Timeout   : 7200 (sec)
+    Verify return code: 18 (self signed certificate)
+    Extended master secret: yes
+---
+jN2kgmIXJ6fShzhT2avhotn4Zcka6tnt        # Saisissez le mot de passe ici !
+Correct!
+JQttfApK4SeyHwDlI9SXGR50qclOAil1
+closed
+
+[Étape 4]
+> bandit15@bandit:~$ exit
+logout
+Connection to bandit.labs.overthewire.org closed.
+
+Nom d'utilisateur et mot de passe du niveau 16
+Nom d'utilisateur : bandit16
+Mot de passe : JQttfApK4SeyHwDlI9SXGR50qclOAil1
+
+
+Solution Niveau 16 à Niveau 17
+Informations
+Nom d'hôte : bandit.labs.overthewire.org
+Nom d'utilisateur : bandit16
+Mot de passe :  JQttfApK4SeyHwDlI9SXGR50qclOAil1
+Numéro de port : 2220
+
+Commandes possibles pour résoudre ce niveau
+Les commandes proposées :
+
+Commande	Explication                                                                                                                                                                
+ssh	OpenSSH Client SSH (programme de connexion à distance)
+telnet	Interface utilisateur du protocole TELNET
+nc	Utilitaire unix qui lit et écrit des données sur des connexions réseau,
+en utilisant les protocoles TCP ou UDP.
+openssl	Outil de ligne de commande OpenSSL
+s_client	Programme client SSL/TLS
+nmap	
+Outil d'exploration du réseau et de sécurité / scanner de ports
+
+Note : Les commande listées ci-dessus ne sont pas toute utiles.
+
+Informations complémentaires 
+La syntaxe de nmap :
+
+nmap [options] {target specification}
+où target specification est la cible à scanner soit localhost soit une adresse IP.
+
+Les options utiles pour cet exercice :
+-p : pour spécifier les ports à scanner
+-sV : pour scanner les ports ouverts afin de déterminer plus d'informations sur le service/la version
+
+Pour trouver le mot de passe du niveau 17
+[Étape 1] : Connectez-vous au compte avec le nom d'utilisateur et le mot de passe indiqués ci-dessus.
+
+[Étape 2] : D'après la description donnée, le mot de passe du niveau 17 peut être récupéré en se connectant à localhost sur un port ouvert et en soumettant le mot de passe de Bandit16. Le port va de 31000 à 32000 et nécessite SSL. Ainsi, vous devez effectuer un scan de port pour identifier un port ouvert qui accepte SSL.
+
+En utilisant la commande nmap avec les options -p et -sV, vous allez effectuer un scan des ports spécifiés <plages de ports> dans l'adresse <cible>. 
+
+Ainsi, dans la commande à utiliser est nmap -p 31000-32000 -sV localhost.
+
+[Étape 3] : Une fois le scan terminé, 5 ports ouverts dont 2 acceptent SSL :
+
+bandit16@bandit:~$ nmap -p 31000-32000 -sV localhost
+Starting Nmap 7.80 ( https://nmap.org ) at 2023-01-26 14:34 UTC
+Nmap scan report for localhost (127.0.0.1)
+Host is up (0.00010s latency).
+Not shown: 996 closed ports
+PORT      STATE SERVICE     VERSION
+31046/tcp open  echo
+31518/tcp open  ssl/echo
+31691/tcp open  echo
+31790/tcp open  ssl/unknown
+31960/tcp open  echo
+1 service unrecognized despite returning data. If you know the service/version, please submit the following fingerprint at https://nmap.org/cgi-bin/submit.cgi?new-service :
+SF-Port31790-TCP:V=7.80%T=SSL%I=7%D=1/26%Time=63D28F9F%P=x86_64-pc-linux-g
+SF:nu%r(GenericLines,31,"Wrong!\x20Please\x20enter\x20the\x20correct\x20cu
+SF:rrent\x20password\n")%r(GetRequest,31,"Wrong!\x20Please\x20enter\x20the
+SF:\x20correct\x20current\x20password\n")%r(HTTPOptions,31,"Wrong!\x20Plea
+SF:se\x20enter\x20the\x20correct\x20current\x20password\n")%r(RTSPRequest,
+SF:31,"Wrong!\x20Please\x20enter\x20the\x20correct\x20current\x20password\
+SF:n")%r(Help,31,"Wrong!\x20Please\x20enter\x20the\x20correct\x20current\x
+SF:20password\n")%r(SSLSessionReq,31,"Wrong!\x20Please\x20enter\x20the\x20
+SF:correct\x20current\x20password\n")%r(TerminalServerCookie,31,"Wrong!\x2
+SF:0Please\x20enter\x20the\x20correct\x20current\x20password\n")%r(TLSSess
+SF:ionReq,31,"Wrong!\x20Please\x20enter\x20the\x20correct\x20current\x20pa
+SF:ssword\n")%r(Kerberos,31,"Wrong!\x20Please\x20enter\x20the\x20correct\x
+SF:20current\x20password\n")%r(FourOhFourRequest,31,"Wrong!\x20Please\x20e
+SF:nter\x20the\x20correct\x20current\x20password\n")%r(LPDString,31,"Wrong
+SF:!\x20Please\x20enter\x20the\x20correct\x20current\x20password\n")%r(LDA
+SF:PSearchReq,31,"Wrong!\x20Please\x20enter\x20the\x20correct\x20current\x
+SF:20password\n")%r(SIPOptions,31,"Wrong!\x20Please\x20enter\x20the\x20cor
+SF:rect\x20current\x20password\n");
+
+Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
+Nmap done: 1 IP address (1 host up) scanned in 98.47 seconds
+[Étape 4] : Afin d'identifier le port recherché, il suffit d'envoyer le mot de passe de bandit16 aux ports 31518 et 31790 en utilisant la commande openssl avec l'outil s_client.
+Les commandes à exécuter sont donc celles au-dessous. Une fois connecté, vous tapez le mot de passe de bandit16.
+
+openssl s_client -connect localhost:31046
+openssl s_client -connect localhost:31790
+[Étape 5] : Finalement, la réponse reçue du port 31790 est la clé privée RSA suivante :
+
+read R BLOCK
+JQttfApK4SeyHwDlI9SXGR50qclOAil1
+Correct!
+-----BEGIN RSA PRIVATE KEY-----
+MIIEogIBAAKCAQEAvmOkuifmMg6HL2YPIOjon6iWfbp7c3jx34YkYWqUH57SUdyJ
+imZzeyGC0gtZPGujUSxiJSWI/oTqexh+cAMTSMlOJf7+BrJObArnxd9Y7YT2bRPQ
+Ja6Lzb558YW3FZl87ORiO+rW4LCDCNd2lUvLE/GL2GWyuKN0K5iCd5TbtJzEkQTu
+DSt2mcNn4rhAL+JFr56o4T6z8WWAW18BR6yGrMq7Q/kALHYW3OekePQAzL0VUYbW
+JGTi65CxbCnzc/w4+mqQyvmzpWtMAzJTzAzQxNbkR2MBGySxDLrjg0LWN6sK7wNX
+x0YVztz/zbIkPjfkU1jHS+9EbVNj+D1XFOJuaQIDAQABAoIBABagpxpM1aoLWfvD
+KHcj10nqcoBc4oE11aFYQwik7xfW+24pRNuDE6SFthOar69jp5RlLwD1NhPx3iBl
+J9nOM8OJ0VToum43UOS8YxF8WwhXriYGnc1sskbwpXOUDc9uX4+UESzH22P29ovd
+d8WErY0gPxun8pbJLmxkAtWNhpMvfe0050vk9TL5wqbu9AlbssgTcCXkMQnPw9nC
+YNN6DDP2lbcBrvgT9YCNL6C+ZKufD52yOQ9qOkwFTEQpjtF4uNtJom+asvlpmS8A
+vLY9r60wYSvmZhNqBUrj7lyCtXMIu1kkd4w7F77k+DjHoAXyxcUp1DGL51sOmama
++TOWWgECgYEA8JtPxP0GRJ+IQkX262jM3dEIkza8ky5moIwUqYdsx0NxHgRRhORT
+8c8hAuRBb2G82so8vUHk/fur85OEfc9TncnCY2crpoqsghifKLxrLgtT+qDpfZnx
+SatLdt8GfQ85yA7hnWWJ2MxF3NaeSDm75Lsm+tBbAiyc9P2jGRNtMSkCgYEAypHd
+HCctNi/FwjulhttFx/rHYKhLidZDFYeiE/v45bN4yFm8x7R/b0iE7KaszX+Exdvt
+SghaTdcG0Knyw1bpJVyusavPzpaJMjdJ6tcFhVAbAjm7enCIvGCSx+X3l5SiWg0A
+R57hJglezIiVjv3aGwHwvlZvtszK6zV6oXFAu0ECgYAbjo46T4hyP5tJi93V5HDi
+Ttiek7xRVxUl+iU7rWkGAXFpMLFteQEsRr7PJ/lemmEY5eTDAFMLy9FL2m9oQWCg
+R8VdwSk8r9FGLS+9aKcV5PI/WEKlwgXinB3OhYimtiG2Cg5JCqIZFHxD6MjEGOiu
+L8ktHMPvodBwNsSBULpG0QKBgBAplTfC1HOnWiMGOU3KPwYWt0O6CdTkmJOmL8Ni
+blh9elyZ9FsGxsgtRBXRsqXuz7wtsQAgLHxbdLq/ZJQ7YfzOKU4ZxEnabvXnvWkU
+YOdjHdSOoKvDQNWu6ucyLRAWFuISeXw9a/9p7ftpxm0TSgyvmfLF2MIAEwyzRqaM
+77pBAoGAMmjmIJdjp+Ez8duyn3ieo36yrttF5NSsJLAbxFpdlc1gvtGCWW+9Cq0b
+dxviW8+TFVEBl1O4f7HVm6EpTscdDxU+bCXWkfjuRb7Dy9GOtt9JPsX8MBTakzh3
+vBgsyi/sN3RqRBcGU40fOoZyfAMT8s1m/uYv52O6IgeuZ/ujbjY=
+-----END RSA PRIVATE KEY-----
+[Étape 6] : Maintenant que nous avons une clé privée RSA, nous pouvons l'utiliser pour connecter bandit17. Pour ce faire, nous devons sauvegarder la clé privée RSA dans un fichier.
+Note : Vu que vous n'avez pas la permission d'écrire dans le répertoire de travail actuel ou le répertoire personnel. Par conséquent, vous ne pouvez pas créer un fichier et enregistrer la clé privée RSA dans notre répertoire de travail actuel. Par contre, vous pouvez créer un dossier dans le répertoire tmp et le nommer name123 par exemple et y sauvegarder la clé privé
+rm -rf /tmp/nom123 # Facultatif. Supprimer si /tmp/name123 existe 
+mkdir /tmp/name123 # Créer un dossier sous le répertoire /tmp 
+cd /tmp/name123 # Naviguer dans le dossier name123
+[Étape 7] : À l'aide de l'éditeur de texte souhaité, vim ou nano , nous allons copier et coller la clé privée RSA dans un fichier nommé,sshkey.private, sous name123 le dossier. Dans ce cas, nous utiliserons vim .
+
+
+Les étapes pour stocker la clé privée sont les suivantes :
+
+
+
+Exécutez vim sshkey.privatepour ouvrir Vim et créez un nouveau fichier nommé sshkey.private.
+Appuyez sur Enter.
+Une fois dans l'éditeur de texte, appuyez sur ipour passer en mode insertion .
+Copiez et collez la clé privée RSA.
+Une fois terminé, appuyez sur ESC pour revenir en mode commande .
+Tapez :wq pour enregistrer les modifications apportées au fichier et quitter Vim.
+(Facultatif) Pour valider le fichier nouvellement créé, exécutez cat sshkey.private.
+
+
+[Étape 8] : Enfin, avec la clé privée RSA stockée dans un fichier, nous pouvons nous connecter àl'aidede la commande, comme cela a été fait précédemment dans bandit13 .bandit17ssh -i sshkey.private bandit17@localhost
+
+Lorsque vous êtes invité à confirmer la connexion, tapez yespuis appuyez sur Enter.
+
+Cependant , si vous exécutez la commande ci-dessus après avoir stocké la clé privée, un avertissement indiquant "FICHIER DE CLÉ PRIVÉE NON PROTÉGÉ !" comme indiqué ci-dessous:
+
+
+Comme vu ci-dessus, nous avons reçu un avertissement car le fichier sshkey.private est lisible par TOUT LE MONDE . Pour résoudre ce problème, modifiez simplement l' autorisation du fichier sshkey.private à l'aide chmod de la commande pour autoriser uniquement le propriétaire (c'est-à-dire vous) à accéder en lecture et en écriture. Cela se fait en exécutant chmod 400  sshkey.private la commande.
+
+[Étape 9] : Une fois réparé, reconnectez-vous et nous sommes en bandit17. Pour obtenirle mot de passe de , exécutez cat /etc/bandit_pass/bandit17
+
+[Étape 10] : Pour vous déconnecter, nous devons :
+
+Exécutez exit pour vous déconnecter de bandit17
+Ensuite, exécutez rm -rf sshkey.private pour supprimer la clé privée stockée dans /tmp/name123.
+Enfin, exécutez exit à nouveau pour vous déconnecter de bandit16
+
+
+
+
+Solution 
+[Étape 1]
+> ssh bandit16@bandit.labs.overthewire.org -p 2220
+This is a OverTheWire game server. More information on http://www.overthewire.org/wargames
+bandit1@bandit.labs.overthewire.org's password: jN2kgmIXJ6fShzhT2avhotn4Zcka6tnt
+
+[Étape 2]
+> bandit16@bandit:~$ nmap -p 31000-32000 localhost
+Starting Nmap 7.40 ( https://nmap.org ) at 2020-06-23 04:12 CEST
+Nmap scan report for localhost (127.0.0.1)
+Host is up (0.00044s latency).
+Not shown: 996 closed ports
+PORT      STATE SERVICE
+31046/tcp open  unknown
+31518/tcp open  unknown
+31691/tcp open  unknown
+31790/tcp open  unknown
+31960/tcp open  unknown
+Nmap done: 1 IP address (1 host up) scanned in 0.12 seconds
+
+[Étape 3]
+> bandit16@bandit:~$ cat /etc/bandit_pass/bandit16 | openssl s_client -connect 
+localhost:31046 -quiet
+139755547877440:error:141A10F4:SSL routines:ossl_statem_client_read_transition:unexpected message:../ssl/statem/statem_clnt.c:284:
+[...]
+
+> bandit16@bandit:~$ cat /etc/bandit_pass/bandit16 | openssl s_client -connect 
+localhost:31790 -quiet
+depth=0 CN = localhost
+verify error:num=18:self signed certificate
+verify return:1
+depth=0 CN = localhost
+verify return:1
+Correct!
+-----BEGIN RSA PRIVATE KEY-----
+MIIEogIBAAKCAQEAvmOkuifmMg6HL2YPIOjon6iWfbp7c3jx34YkYWqUH57SUdyJ
+imZzeyGC0gtZPGujUSxiJSWI/oTqexh+cAMTSMlOJf7+BrJObArnxd9Y7YT2bRPQ
+Ja6Lzb558YW3FZl87ORiO+rW4LCDCNd2lUvLE/GL2GWyuKN0K5iCd5TbtJzEkQTu
+DSt2mcNn4rhAL+JFr56o4T6z8WWAW18BR6yGrMq7Q/kALHYW3OekePQAzL0VUYbW
+JGTi65CxbCnzc/w4+mqQyvmzpWtMAzJTzAzQxNbkR2MBGySxDLrjg0LWN6sK7wNX
+x0YVztz/zbIkPjfkU1jHS+9EbVNj+D1XFOJuaQIDAQABAoIBABagpxpM1aoLWfvD
+KHcj10nqcoBc4oE11aFYQwik7xfW+24pRNuDE6SFthOar69jp5RlLwD1NhPx3iBl
+J9nOM8OJ0VToum43UOS8YxF8WwhXriYGnc1sskbwpXOUDc9uX4+UESzH22P29ovd
+d8WErY0gPxun8pbJLmxkAtWNhpMvfe0050vk9TL5wqbu9AlbssgTcCXkMQnPw9nC
+YNN6DDP2lbcBrvgT9YCNL6C+ZKufD52yOQ9qOkwFTEQpjtF4uNtJom+asvlpmS8A
+vLY9r60wYSvmZhNqBUrj7lyCtXMIu1kkd4w7F77k+DjHoAXyxcUp1DGL51sOmama
++TOWWgECgYEA8JtPxP0GRJ+IQkX262jM3dEIkza8ky5moIwUqYdsx0NxHgRRhORT
+8c8hAuRBb2G82so8vUHk/fur85OEfc9TncnCY2crpoqsghifKLxrLgtT+qDpfZnx
+SatLdt8GfQ85yA7hnWWJ2MxF3NaeSDm75Lsm+tBbAiyc9P2jGRNtMSkCgYEAypHd
+HCctNi/FwjulhttFx/rHYKhLidZDFYeiE/v45bN4yFm8x7R/b0iE7KaszX+Exdvt
+SghaTdcG0Knyw1bpJVyusavPzpaJMjdJ6tcFhVAbAjm7enCIvGCSx+X3l5SiWg0A
+R57hJglezIiVjv3aGwHwvlZvtszK6zV6oXFAu0ECgYAbjo46T4hyP5tJi93V5HDi
+Ttiek7xRVxUl+iU7rWkGAXFpMLFteQEsRr7PJ/lemmEY5eTDAFMLy9FL2m9oQWCg
+R8VdwSk8r9FGLS+9aKcV5PI/WEKlwgXinB3OhYimtiG2Cg5JCqIZFHxD6MjEGOiu
+L8ktHMPvodBwNsSBULpG0QKBgBAplTfC1HOnWiMGOU3KPwYWt0O6CdTkmJOmL8Ni
+blh9elyZ9FsGxsgtRBXRsqXuz7wtsQAgLHxbdLq/ZJQ7YfzOKU4ZxEnabvXnvWkU
+YOdjHdSOoKvDQNWu6ucyLRAWFuISeXw9a/9p7ftpxm0TSgyvmfLF2MIAEwyzRqaM
+77pBAoGAMmjmIJdjp+Ez8duyn3ieo36yrttF5NSsJLAbxFpdlc1gvtGCWW+9Cq0b
+dxviW8+TFVEBl1O4f7HVm6EpTscdDxU+bCXWkfjuRb7Dy9GOtt9JPsX8MBTakzh3
+vBgsyi/sN3RqRBcGU40fOoZyfAMT8s1m/uYv52O6IgeuZ/ujbjY=
+-----END RSA PRIVATE KEY-----
+
+[Étape 4]
+bandit16@bandit:~$ rm -rf /tmp/name123
+bandit16@bandit:~$ mkdir /tmp/name123
+bandit16@bandit:~$ cd /tmp/name123
+bandit16@bandit:/tmp/name123$
+
+[Étape 5]
+bandit16@bandit:/tmp/name123$ vim sshkey.private
+Dans l'éditeur Vim :
+
+ 1 -----BEGIN RSA PRIVATE KEY-----
+  2 MIIEogIBAAKCAQEAvmOkuifmMg6HL2YPIOjon6iWfbp7c3jx34YkYWqUH57SUdyJ
+  3 imZzeyGC0gtZPGujUSxiJSWI/oTqexh+cAMTSMlOJf7+BrJObArnxd9Y7YT2bRPQ
+  4 Ja6Lzb558YW3FZl87ORiO+rW4LCDCNd2lUvLE/GL2GWyuKN0K5iCd5TbtJzEkQTu
+  5 DSt2mcNn4rhAL+JFr56o4T6z8WWAW18BR6yGrMq7Q/kALHYW3OekePQAzL0VUYbW
+  6 JGTi65CxbCnzc/w4+mqQyvmzpWtMAzJTzAzQxNbkR2MBGySxDLrjg0LWN6sK7wNX
+  7 x0YVztz/zbIkPjfkU1jHS+9EbVNj+D1XFOJuaQIDAQABAoIBABagpxpM1aoLWfvD
+  8 KHcj10nqcoBc4oE11aFYQwik7xfW+24pRNuDE6SFthOar69jp5RlLwD1NhPx3iBl
+  9 J9nOM8OJ0VToum43UOS8YxF8WwhXriYGnc1sskbwpXOUDc9uX4+UESzH22P29ovd
+ 10 d8WErY0gPxun8pbJLmxkAtWNhpMvfe0050vk9TL5wqbu9AlbssgTcCXkMQnPw9nC
+ 11 YNN6DDP2lbcBrvgT9YCNL6C+ZKufD52yOQ9qOkwFTEQpjtF4uNtJom+asvlpmS8A
+ 12 vLY9r60wYSvmZhNqBUrj7lyCtXMIu1kkd4w7F77k+DjHoAXyxcUp1DGL51sOmama
+ 13 +TOWWgECgYEA8JtPxP0GRJ+IQkX262jM3dEIkza8ky5moIwUqYdsx0NxHgRRhORT
+ 14 8c8hAuRBb2G82so8vUHk/fur85OEfc9TncnCY2crpoqsghifKLxrLgtT+qDpfZnx
+ 15 SatLdt8GfQ85yA7hnWWJ2MxF3NaeSDm75Lsm+tBbAiyc9P2jGRNtMSkCgYEAypHd
+ 16 HCctNi/FwjulhttFx/rHYKhLidZDFYeiE/v45bN4yFm8x7R/b0iE7KaszX+Exdvt
+ 17 SghaTdcG0Knyw1bpJVyusavPzpaJMjdJ6tcFhVAbAjm7enCIvGCSx+X3l5SiWg0A
+ 18 R57hJglezIiVjv3aGwHwvlZvtszK6zV6oXFAu0ECgYAbjo46T4hyP5tJi93V5HDi
+ 19 Ttiek7xRVxUl+iU7rWkGAXFpMLFteQEsRr7PJ/lemmEY5eTDAFMLy9FL2m9oQWCg
+ 20 R8VdwSk8r9FGLS+9aKcV5PI/WEKlwgXinB3OhYimtiG2Cg5JCqIZFHxD6MjEGOiu
+ 21 L8ktHMPvodBwNsSBULpG0QKBgBAplTfC1HOnWiMGOU3KPwYWt0O6CdTkmJOmL8Ni
+ 22 blh9elyZ9FsGxsgtRBXRsqXuz7wtsQAgLHxbdLq/ZJQ7YfzOKU4ZxEnabvXnvWkU
+ 23 YOdjHdSOoKvDQNWu6ucyLRAWFuISeXw9a/9p7ftpxm0TSgyvmfLF2MIAEwyzRqaM
+ 24 77pBAoGAMmjmIJdjp+Ez8duyn3ieo36yrttF5NSsJLAbxFpdlc1gvtGCWW+9Cq0b
+ 25 dxviW8+TFVEBl1O4f7HVm6EpTscdDxU+bCXWkfjuRb7Dy9GOtt9JPsX8MBTakzh3
+ 26 vBgsyi/sN3RqRBcGU40fOoZyfAMT8s1m/uYv52O6IgeuZ/ujbjY=
+ 27 -----END RSA PRIVATE KEY-----
+/tmp/name123/sshkey.private[+] [dec= 45] [hex=2D] [pos=0027:0029][100% of 27]
+:wq
+Après la fermeture de l'éditeur Vim :
+
+
+
+[Étape 5(Suite)]
+bandit16@bandit:/tmp/name123$ cat sshkey.private
+-----BEGIN RSA PRIVATE KEY-----
+MIIEogIBAAKCAQEAvmOkuifmMg6HL2YPIOjon6iWfbp7c3jx34YkYWqUH57SUdyJ
+[...]
+-----END RSA PRIVATE KEY-----
+[Étape 6] 
+bandit16@bandit:/tmp/name123$ ssh -i sshkey.private 
+bandit17@localhost Could not create directory '/home/bandit16/.ssh'. 
+The authenticity of host 'localhost (127.0.0.1)' can't be established. 
+ECDSA key fingerprint is SHA256:98UL0ZWr85496EtCRkKlo20X3OPnyPSB5tB5RPbhczc. 
+Are you sure you want to continue connecting (yes/no)? yes 
+Failed to add the host to the list of known hosts (/home/bandit16/.ssh/known_hosts). 
+This is a OverTheWire game server. 
+More
+information on http://www.overthewire.org/wargames 
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ 
+@ WARNING: UNPROTECTED PRIVATE KEY FILE! @
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ 
+Permissions 0644 for 'sshkey.private' are too open. 
+It is required that your private key files are NOT accessible by others. 
+This private key will be ignored. Load key "sshkey.private": bad permissions bandit17@localhost's password: Authentication failed. 
+
+bandit16@bandit:/tmp/name123$ chmod 400 sshkey.private 
+
+[Étape 7] 
+
+SOLUTION - Niveau 17 > 18
+
+Solution Niveau 17 à Niveau 18
+Informations
+Nom d'hôte : bandit.labs.overthewire.org
+Nom d'utilisateur : bandit17
+Mot de passe : VwOSWtCA7lRKkTfbr2IDh6awj9RNZM5e
+Numéro de port : 2220
+
+Commandes possibles pour résoudre ce niveau
+Les commandes proposées :
+
+Commande	Explication                                                                                                                                                                
+cat	Concaténer des fichiers et les imprimer sur la sortie standard
+ls	Lister le contenu d'un répertoire
+grep    	Affiche les lignes correspondant à un PATTERN
+diff	
+Comparer les fichiers ligne par ligne
+
+Note : Les commandes listées ci-dessus ne sont pas toutes utiles
+
+
+Pour trouver le mot de passe du niveau 18
+[Étape 1] : Connectez-vous au compte avec le nom d'utilisateur et le mot de passe indiqués ci-dessus.
+
+[Étape 2] : Après s'être connecté, vous serez dans le répertoire personnel. Puisque les deux fichiers passwords.old et passwords.new, sont situés dans le répertoire personnel, vous n'avez pas besoin d'exécuter cd. L'exécution de ls affichera les deux fichiers.
+
+[Étape 3] : Comme mentionné dans la description, le mot de passe de bandit18 est dans passwords.new & est la seule ligne qui a été changée entre passwords.old et passwords.new. Par conséquent, exécutez diff passwords.new passwords.old, pour comparer et identifier la différence entre ces 2 fichiers. La sortie ressemblera à :
+
+
+
+Note :
+Les lignes précédées d'un < sont des lignes du 1er fichier.
+Les lignes précédées d'un > sont des lignes du 2ème fichier.
+Les 3 tirets --- ne font que séparer les lignes du 1er fichier de celles du 2ème fichier.
+[Étape 4] : Pour vous déconnecter, exécutez exit.
+
+
+Solution 
+[Étape 1]
+> ssh bandit17@bandit.labs.overthewire.org -p 2220
+This is a OverTheWire game server. More information on http://www.overthewire.org/wargames
+bandit1@bandit.labs.overthewire.org's password: VwOSWtCA7lRKkTfbr2IDh6awj9RNZM5e
+
+[Étape 2]
+> bandit17@bandit:~$ ls
+passwords.new  passwords.old
+
+[Étape 3]
+> bandit17@bandit:~$ diff passwords.old passwords.new
+42c42
+< BKb4Gx8Q6VKNCxln7Obf1rqgn9GEoj4Q
+---
+> hga5tuuCLF6fFzUpnagiMN8ssu9LFrdg
+
+[Étape 4]
+> bandit17@bandit:~$ exit
+logout
+Connection to bandit.labs.overthewire.org closed.
+
+Nom d'utilisateur et mot de passe du niveau 18
+Nom d'utilisateur : bandit18
+Mot de passe : hga5tuuCLF6fFzUpnagiMN8ssu9LFrdg
+
+Continuer
+
+Solution Niveau 18 à Niveau 19
+Informations
+Nom d'hôte : bandit.labs.overthewire.org
+Nom d'utilisateur : bandit18
+Mot de passe : hga5tuuCLF6fFzUpnagiMN8ssu9LFrdg
+Numéro de port : 2220
+
+Commandes possibles pour résoudre ce niveau
+Les commandes proposées :
+
+Commande	Explication                                                                                                                                                                
+cat	Concaténer des fichiers et les imprimer sur la sortie standard
+ls	Lister le contenu d'un répertoire
+ssh	OpenSSH Client SSH (programme de connexion à distance)
+
+Note : Les commandes listées ci-dessus ne sont pas toutes utiles
+
+
+Pour trouver le mot de passe du niveau 18
+[Étape 1] : Connectez-vous au compte avec le nom d'utilisateur en exécutant ssh bandit18@bandit.labs.overthewire.org -p 2220.
+
+
+
+[Étape 2] : Vu que le fichier .bashrc est modifié, vous ne pouvez pas vous connecter au shell. Pourtant, vous pouvez exécuter les commandes à la suite de votre commande ssh. 
+Par exemple, pour valider si le fichier readme existe dans le répertoire personnel, vous ajoutez ls -al aprrès ssh bandit18@bandit.labs.overthewire.org -p 2220, puis, tapez le mot de passe de bandit18.
+
+
+[Étape 3] : Vous pouvez ainsi lire le fichier readme en ajoutant cat readme à la commande ssh bandit18@bandit.labs.overthewire.org -p 2220, puis en tapant le mot de passe de bandit18.
+
+
+
+
+Nom d'utilisateur et mot de passe du niveau 19
+Nom d'utilisateur : bandit19
+Mot de passe : awhqfNnAbc1naukrpqDYcF95h7HoMTrC
+
+Continuer
