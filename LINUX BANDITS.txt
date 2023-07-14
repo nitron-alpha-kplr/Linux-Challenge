@@ -1845,3 +1845,366 @@ Nom d'utilisateur : bandit19
 Mot de passe : awhqfNnAbc1naukrpqDYcF95h7HoMTrC
 
 Continuer
+
+
+
+SOLUTION - Niveau 19 > 20
+
+Solution Niveau 19 à Niveau 20
+Informations
+Nom d'hôte : bandit.labs.overthewire.org
+Nom d'utilisateur : bandit19
+Mot de passe : awhqfNnAbc1naukrpqDYcF95h7HoMTrC
+Numéro de port : 2220
+
+Informations supplémentaires
+Que sont la propriété et les autorisations des fichiers Linux ?
+Lien :  https://www.booleanworld.com/introduction-linux-file-permissions/
+Comment afficher les permissions des fichiers ?
+Pour voir les permissions des fichiers dans un répertoire donné : ls -l <chemin du répertoire>
+Pour voir les permissions des fichiers du répertoire courant : ls -l
+Qu'est-ce que Setuid ?
+Setuid ( Set User Identity ) est un paramètre de fichier Linux qui permet à un utilisateur d'exécuter un exécutable avec les autorisations de système de fichiers du propriétaire de l'exécutable et de modifier le comportement dans les répertoires. Ceci est principalement utilisé pour élever les privilèges de l'utilisateur actuel.
+
+Setuid est un moyen pour les utilisateurs d'exécuter un exécutable avec les permissions de l'utilisateur qui possède le fichier. Par exemple, si vous souhaitez qu'un utilisateur soit en mesure d'effectuer une tâche spécifique nécessitant les privilèges de root/superuser, mais que vous ne souhaitez pas lui donner l'accès sudo ou root.
+
+
+Pour trouver le mot de passe du niveau 20
+[Étape 1] : Connectez-vous au compte avec le nom d'utilisateur et le mot de passe indiqués ci-dessus.
+
+[Étape 2] : Exécutez ls -l dans le répertoire de travail actuel, pour identifier le fichier avec un paramètre de permission de fichier "setuid".
+
+
+Dans l'image ci-dessus, le fichier bandit20-do, a un bit s situé dans les classes de permission "User". De plus, le propriétaire du fichier bandit20-do est bandit20. La surbrillance rouge indique que ce fichier dispose de permissions élevées. Par conséquent, toute commande exécutée avec ./bandit20-do sera exécutée en tant qu'utilisateur bandit20 au lieu de bandit19.
+
+[Étape 3] : L'exécution du fichier bandit20-do montrera que ce fichier est un exécutable setuid ELF 32-bit LSB.
+
+
+
+
+[Étape 4] : Comme le fichier bandit20-do est un exécutable, il suffit d'exécuter la commande ./bandit20-do pour lancer le fichier et obtenir le résultat suivant :
+
+
+[Étape 5] : D'après la sortie ci-dessus, l'exemple donné suggère que nous pouvons exécuter n'importe quelle commande à côté de ./bandit20-do en tant qu'utilisateur bandit20. En d'autres termes, nous pouvons exécuter ./bandit20-do <Insérez vos commandes> en tant qu'utilisateur bandit20. Pour prouver ou valider le fait que nous sommes bien l'utilisateur bandit20, lancer ./bandit20-do whoami devrait afficher bandit20.
+L'exécution de whoami affiche le nom d'utilisateur de l'utilisateur actuel lorsque cette commande est invoquée.
+
+
+[Étape 6] : Comme la description le mentionne, le mot de passe de bandit20 peut être trouvé à l'endroit habituel (/etc/bandit_pass). Il suffit donc de lancer
+./bandit20-do cat /etc/bandit_pass/bandit20 pour récupérer le mot de passe de bandit20.
+
+
+[Étape 7] : Pour vous déconnecter, exécutez exit.
+
+
+Nom d'utilisateur et mot de passe du niveau 20
+Nom d'utilisateur : bandit20
+Mot de passe : VxCazJaVykI6W36BkBU0mJTCM8rR95XT
+
+Continuer
+
+SOLUTION - Niveau 20 > 21
+
+Solution Niveau 20 à Niveau 21
+Informations
+Nom d'hôte : bandit.labs.overthewire.org
+Nom d'utilisateur : bandit20
+Mot de passe : VxCazJaVykI6W36BkBU0mJTCM8rR95XT
+Numéro de port : 2220
+
+Commandes possibles pour résoudre l'exercice
+
+Commande	Explication
+ssh
+
+OpenSSH Client SSH (programme de connexion à distance )
+nc
+
+TCP/
+Couteau suisse I
+bash
+
+GNU
+Bourne-Again Shell
+screen
+
+Gestionnaire d'écran avec émulation de
+terminal
+tmux
+
+Multiplexeur de terminaux
+Contrôle des tâches
+Unix
+
+Liste des commandes de contrôle des tâches
+Unix
+
+Pour trouver le mot de passe du niveau 21
+[Étape 1] : Connectez-vous et connectez-vous au compte avec le nom d'utilisateur et le mot de passe indiqués ci-dessus.
+
+
+
+[Étape 2] : Exécuter ls -l dans le répertoire de travail actuel pour identifier le fichier avec un paramètre d'autorisation de fichier « setuid ».
+
+Note : 
+Lorsque vous vous connectez pour la première fois, votre répertoire de travail actuel est votre répertoire personnel. Votre répertoire personnel porte le même nom que votre nom d'utilisateur. Par exemple, ee91ab, et c'est là que vos fichiers et sous-répertoires personnels sont enregistrés.
+ bandit20@bandit:~$ ls -l
+total 12
+-rwsr-x--- 1 bandit21 bandit20 12088 7 mai 20:14 suconnect
+Comme mentionné dans le niveau précédent , dans l'image ci-dessus, le fichier suconnect a un bit s situé dans les classes d'autorisation "Utilisateur". Par conséquent, c'est le fichier que nous trouvons avec le jeu d'autorisations binaires setuid .
+
+
+
+De plus, le propriétaire du fichier suconnect est bandit21. La surbrillance rouge signifie que ce fichier a des autorisations élevées. Par conséquent, toutes les commandes exécutées avec s'exécuteront en tant qu'utilisateur au lieu de .bandit21./suconnect bandit21 bandit20
+
+
+
+[Étape 3] : Exécutez ./suconnect la commande pour comprendre le programme et comment l'utiliser pour récupérerle mot de passe de bandit21.
+
+bandit20@bandit:~$ ./suconnect
+Usage: ./suconnect <portnumber>
+This program will connect to the given port on localhost using TCP. If it receives the correct password from the other side, the next password is transmitted back.
+
+
+"from the other side" est un indice indiquant que ce niveau nécessite que 2 terminaux fonctionnent en conjonction entre eux :
+
+Le 1er Terminal démarrera un écouteur netcat sur un numéro de port choisi &
+Le 2ème Terminal s'y connectera à l'aide ./suconnect <Port Number> de la commande.
+
+
+Note : 
+Vous devez choisir un numéro de port non utilisé. Vous pouvez vérifier les numéros de ports utilisés grâce à la commande nmap localhost. Puis, choisissez n'importe quel numéro de port non répertorié dans la sortie. Dans ce cas, le port choisi sera 6000.
+
+
+Une fois configuré, dans le 1er Terminal , entrez le mot de passe de . Le mot de passe sera envoyé via netcat pour lecture. Une fois qu'il a reçu et validé le mot de passe saisi, il répondra avec le mot de passe de bandit21
+
+
+
+[Étape 4] : Pour démarrer un écouteur netcat, exécutez nc -lp 6000 .
+
+-l : Pour spécifier que nc doit écouter une connexion entrante plutôt que d'initier  une connexion à un hôte distant.
+-p <Port> : Spécifie le numéro de port que nc doit utiliser.
+
+
+Rappel :
+netcat est un simple utilitaire Unix qui lit et écrit des données sur les connexions réseau, en utilisant le protocole TCP ou UDP.
+
+
+[Étape 5] : Une fois que netcat commence à écouter sur le port 6000, ouvrez un 2e terminal. Connectez-vous et connectez-vous au même compte que dans [# Étape 1] . Ensuite, exécutez ./suconnect 6000 pour vous connecter au port 6000 sur localhost en utilisant TCP.
+
+
+
+
+
+[Étape 6] : De retour au 1er Terminal , saisissez le mot de passe de . Si le mot de passe est correctement entré, il affichera le mot de passe de bandit21
+
+1e Terminal :
+
+
+
+2e Terminal :
+
+
+
+1e Terminal :
+
+
+
+
+
+[Étape 7] : Pour vous déconnecter, exécutez exit.
+
+
+Nom d'utilisateur et mot de passe du niveau 21
+Nom d'utilisateur : bandit21
+Mot de passe : NvEJF7oVjkddltPSrdKEFOllh9V1IBcq
+
+Continuer
+
+
+1
+Fondamentaux Linux
+Correction du challenge 21 > 22
+Par : Hajar BELLFKIH
+Énoncé :
+Lien du challenge : OverTheWire: Level Goal: Bandit Level 21 → Level 22
+Un programme s'exécute automatiquement à intervalles réguliers à partir de cron, le
+planificateur de tâches basé sur le temps. Consultez le fichier /etc/cron.d/ pour
+connaître la configuration et voir quelle commande est exécutée.
+Commandes dont vous pourriez avoir besoin pour résoudre ce niveau
+cron, crontab, crontab(5) (utilisez "man 5 crontab" pour y accéder)
+Qu’est-ce que Cron, CronJob et Crontab ?
+Cron
+Cron est un un planificateur de tâches basé sur le temps
+dans les systèmes d'exploitation informatiques Unix ou de
+type Unix.
+Il planifie une commande ou un script sur votre serveur
+pour qu'il s'exécute automatiquement en arrière-plan, à
+un moment désigné.
+Qu’est-ce que Cron, CronJob et Crontab ?
+CronJob (Tâche Cron)
+Une tâche Cron est la tâche planifiée elle-même.
+Exemple de tâche :
+Supprimer les fichiers temporaires chaque semaine afin de conserver
+votre espace disque.
+Les tâches cron peuvent être configurées pour s'exécuter à
+la minute, à l'heure, au jour de la semaine, au jour du
+mois, au mois ou à une combinaison de ces éléments.
+
+1
+Fondamentaux Linux
+Correction du challenge 21 > 22
+Par : Hajar BELLFKIH
+Énoncé :
+Lien du challenge : OverTheWire: Level Goal: Bandit Level 21 → Level 22
+Un programme s'exécute automatiquement à intervalles réguliers à partir de cron, le
+planificateur de tâches basé sur le temps. Consultez le fichier /etc/cron.d/ pour
+connaître la configuration et voir quelle commande est exécutée.
+Commandes dont vous pourriez avoir besoin pour résoudre ce niveau
+cron, crontab, crontab(5) (utilisez "man 5 crontab" pour y accéder)
+Qu’est-ce que Cron, CronJob et Crontab ?
+Cron
+Cron est un un planificateur de tâches basé sur le temps
+dans les systèmes d'exploitation informatiques Unix ou de
+type Unix.
+Il planifie une commande ou un script sur votre serveur
+pour qu'il s'exécute automatiquement en arrière-plan, à
+un moment désigné.
+Qu’est-ce que Cron, CronJob et Crontab ?
+CronJob (Tâche Cron)
+Une tâche Cron est la tâche planifiée elle-même.
+Exemple de tâche :
+Supprimer les fichiers temporaires chaque semaine afin de conserver
+votre espace disque.
+Les tâches cron peuvent être configurées pour s'exécuter à
+la minute, à l'heure, au jour de la semaine, au jour du
+mois, au mois ou à une combinaison de ces éléments.
+
+8
+Fondamentaux Linux
+Correction du challenge 21 > 22
+Par : Hajar BELLFKIH
+Énoncé :
+Lien du challenge : OverTheWire: Level Goal: Bandit Level 21 → Level 22
+Un programme s'exécute automatiquement à intervalles réguliers à partir de cron, le
+planificateur de tâches basé sur le temps. Consultez le fichier /etc/cron.d/ pour
+connaître la configuration et voir quelle commande est exécutée.
+Commandes dont vous pourriez avoir besoin pour résoudre ce niveau
+cron, crontab, crontab(5) (utilisez "man 5 crontab" pour y accéder)
+Qu’est-ce que Cron, CronJob et Crontab ?
+Cron
+Cron est un un planificateur de tâches basé sur le temps
+dans les systèmes d'exploitation informatiques Unix ou de
+type Unix.
+Il planifie une commande ou un script sur votre serveur
+pour qu'il s'exécute automatiquement en arrière-plan, à
+un moment désigné.
+Qu’est-ce que Cron, CronJob et Crontab ?
+CronJob (Tâche Cron)
+Une tâche Cron est la tâche planifiée elle-même.
+Exemple de tâche :
+Supprimer les fichiers temporaires chaque semaine afin de conserver
+votre espace disque.
+Les tâches cron peuvent être configurées pour s'exécuter à
+la minute, à l'heure, au jour de la semaine, au jour du
+mois, au mois ou à une combinaison de ces éléments.
+Qu’est-ce que Cron, CronJob et Crontab ?
+Crontab
+Les actions de Cron sont pilotées par des fichiers Crontab.
+Un fichier Crontab est un fichier texte contenant une liste
+de tâches Cron à s’exécuter dans des moments spécifiés.
+Qu’est-ce que Cron, CronJob et Crontab ?
+Crontab
+Exemple de contenu de fichier crontab :
+Crontab
+Syntaxe :
+Qu’est-ce que Cron, CronJob et Crontab ?
+* * * * * <nom d'utilisateur> <commande à exécuter>
+>> crontab guru
+Correction du challenge
+La commande "chmod" (abréviation de "change mode") sous Linux est utilisée pour
+modifier les permissions d'accès aux fichiers et aux répertoires.
+Les permissions sont : lire, écrire et exécuter.
+Mot de passe de bandit 22 : WdDozAdTM2z9DiFEQ2mGlwngMfj4EZff
+
+
+1
+Fondamentaux Linux
+Correction du challenge 22 > 23
+Par : Hajar BELLFKIH
+Énoncé :
+Lien du challenge : OverTheWire: Level Goal: Bandit Level 22 → Level 23
+Un programme s'exécute automatiquement à intervalles réguliers à partir de cron, le
+planificateur de tâches basé sur le temps. Consultez le fichier /etc/cron.d/ pour
+connaître la configuration et voir quelle commande est exécutée.
+REMARQUE : l'observation de scripts shell écrits par d'autres personnes est une
+compétence très utile. Le script de ce niveau est volontairement facile à lire. Si vous avez
+des difficultés à comprendre ce qu'il fait, essayez de l'exécuter pour voir les informations
+de débogage qu'il affiche.
+Commandes dont vous pourriez avoir besoin pour résoudre ce niveau
+cron, crontab, crontab(5) (utilisez "man 5 crontab" pour y accéder)
+Correction du challenge
+La commande md5sum permet de calculer la somme de contrôle MD5 (Message
+Digest 5) d'un fichier.
+La somme de contrôle MD5 est un algorithme de hachage cryptographique.
+Mot de passe de bandit 23 : QYw0Y2aiA672PsMmh9puTQuhoz8SyR2G
+
+
+5
+Fondamentaux Linux
+Correction du challenge 23 > 24
+Par : Hajar BELLFKIH
+Énoncé :
+Lien du challenge : OverTheWire: Level Goal: Bandit Level 23 → Level 24
+Un programme s'exécute automatiquement à intervalles réguliers à partir de cron, le
+planificateur de tâches basé sur le temps. Consultez le fichier /etc/cron.d/ pour
+connaître la configuration et voir quelle commande est exécutée.
+NOTE : Ce niveau requiert que vous créiez votre premier script shell. C'est une étape
+importante et vous devriez être fier de vous lorsque vous aurez réussi ce niveau !
+NOTE 2 : Gardez à l'esprit que votre script shell est supprimé une fois exécuté, vous
+pouvez donc en garder une copie...
+Commandes dont vous pourriez avoir besoin pour résoudre ce niveau
+cron, crontab, crontab(5) (utilisez "man 5 crontab" pour y accéder)
+Correction du challenge
+for i in * : passe en revue
+tous les fichiers normaux situés
+dans le répertoire de travail actuel.
+for i in .* : parcourt tous les
+fichiers cachés situés dans le
+répertoire actuel.
+Correction du challenge
+Correction du challenge
+Mot de passe de bandit 24 : VAfGXJ1PBSsPSnvsjI8p759leLZ9GGar
+# Pour que script.sh puisse s’exécuter par bandit24
+# Pour pouvoir créer le fichier /tmp/temp123/bandit24
+Mot de passe de bandit 24 : VAfGXJ1PBSsPSnvsjI8p759leLZ9GGar
+# Pour que script.sh puisse s’exécuter par bandit24
+# Pour pouvoir créer le fichier /tmp/temp123/bandit24
+
+
+1
+Fondamentaux Linux
+Correction du challenge 24 > 25
+Par : Hajar BELLFKIH
+Énoncé :
+Lien du challenge : OverTheWire : Objectif de niveau : Bandit Niveau 24 → Niveau 25
+Un démon écoute sur le port 30002 et vous donnera le mot de passe pour bandit25 s'il
+reçoit le mot de passe pour bandit24 et un code secret numérique à 4 chiffres.
+Il n'y a aucun moyen de récupérer le code PIN sauf en passant par toutes les 10000
+combinaisons, appelées brute-forcing.
+Vous n'avez pas besoin de créer de nouvelles connexions à chaque fois.
+Correction du challenge
+
+4
+Fondamentaux Linux
+Correction du challenge 24 > 25
+Par : Hajar BELLFKIH
+Énoncé :
+Lien du challenge : OverTheWire : Objectif de niveau : Bandit Niveau 24 → Niveau 25
+Un démon écoute sur le port 30002 et vous donnera le mot de passe pour bandit25 s'il
+reçoit le mot de passe pour bandit24 et un code secret numérique à 4 chiffres.
+Il n'y a aucun moyen de récupérer le code PIN sauf en passant par toutes les 10000
+combinaisons, appelées brute-forcing.
+Vous n'avez pas besoin de créer de nouvelles connexions à chaque fois.
+Correction du challenge
+Correction du challenge
+Mot de passe de bandit 25 : p7TaowMYrmu23Ol8hiZh9UvD0O9hpx8d
